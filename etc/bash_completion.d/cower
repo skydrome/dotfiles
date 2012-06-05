@@ -1,0 +1,42 @@
+#!/bin/bash
+
+_cower() {
+  local i cur prev opts ng
+
+  _get_comp_words_by_ref cur prev
+
+  # nullglob avoids problems when no results are found
+  shopt -q nullglob || { shopt -s nullglob; ng=1; }
+
+  opts="-d --download -i --info -m --msearch -s --search -u --update -c --color
+        -f --force --format -h --help --ignore -o --ignore-ood --no-ignore-ood
+        --ignorerepo --listdelim --nossl -q --quiet -t --target --threads --debug
+        -v --verbose"
+
+  n=${#COMP_WORDS[@]}
+
+  if [[ $cur = -* ]]; then # options
+    COMPREPLY=($(compgen -W "$opts" -- $cur))
+  elif [[ $prev = @(-*t|--target) ]]; then # directories (taken from _cd)
+    compgen -f /non-existing-dir/ >/dev/null
+    _filedir -d
+    if (( ${#COMPREPLY[@]} == 1 )); then
+      i=${COMPREPLY[0]}
+      [[ $i = $cur && "$i" != */ ]] && COMPREPLY[0]="${i}/"
+    fi
+  elif [[ $prev = --ignore ]]; then
+    COMPREPLY=($(compgen -W "$(pacman -Qq)" -- $cur))
+  elif [[ $prev = --ignorerepo ]]; then
+    COMPREPLY=($(compgen -W "$(sed '/^\[\(.*\)\]$/!d;s//\1/;/options/d' /etc/pacman.conf)" -- $cur))
+  elif [[ ${COMP_WORDS[@]:1:n-2} = *-@(!(-*)@(u)*|-update)* ]]; then # local packages
+    COMPREPLY=($(compgen -W "$(pacman -Qqm)" -- $cur))
+  elif [[ ${COMP_WORDS[@]:1:n-2} = *-@(!(-*)@(d|i)*|-download|-info)* ]]; then # aur packages
+    COMPREPLY=($(compgen -W "$("${COMP_WORDS[0]}" -sq -- ^$cur 2>/dev/null)" -- $cur))
+  fi
+
+  # restore nullglob setting
+  [[ $ng ]] && shopt -u nullglob
+
+}
+
+complete -F _cower cower

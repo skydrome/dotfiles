@@ -1,0 +1,74 @@
+throttle.max_peers.normal.set = 50
+throttle.max_peers.seed.set   = 50
+
+throttle.max_uploads.global.set   = 250
+throttle.max_downloads.global.set = 250
+
+throttle.global_down.max_rate.set_kb = 3000
+throttle.global_up.max_rate.set_kb   = 2
+#pieces.sync.always_safe.set = yes
+network.port_random.set          = no
+network.http.ssl_verify_peer.set = no
+network.xmlrpc.size_limit.set    = 3M
+
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
+#protocol.encryption.set = allow_incoming,try_outgoing,require,require_RC4
+file.prioritize_toc.set = 1
+trackers.use_udp.set    = yes
+dht.mode.set            = on
+encoding.add            = UTF-8
+pieces.hash.on_completion.set = no
+
+schedule = low_diskspace,5,60,close_low_diskspace=100M
+schedule = watch_directory,5,5,"load.start=~/.rtorrent/watch/*.torrent,d.delete_tied="
+
+# example logging
+#log.open_file = "rtorrent.log", (cat,/tmp/rtorrent.log.,(system.pid))
+#critical error warn notice info debug
+#log.add_output = "info", "rtorrent.log"
+#connection_* dht_*" peer_* rpc_* storage_* thread_* tracker_* torrent_*
+#log.add_output = "torrent_debug", "tracker.log"
+#log.add_output = "tracker_debug", "tracker.log"
+
+log.open_file = "rtorrent", ~/.rtorrent/logs/rtorrent.log
+log.add_output = "debug", "rtorrent"
+#log.add_output = "connection_debug", "rtorrent"
+
+#ipv4_filter.load = ~/.rtorrent/ipfilter, unwanted
+
+## Below Generated From Auto Script ##
+
+# PyroScope SETTINGS
+# activate rTorrent-PS features
+system.method.insert = pyro.extended, value|const, 1
+system.method.insert = pyro.bin_dir, string|const, ~/bin/
+
+system.method.insert = pyro.rtorrent_rc, string|const|private, "$cat=~/.pyroscope/rtorrent-,\"$system.client_version=\",.rc"
+import = $pyro.rtorrent_rc=
+
+# TORQUE: Daemon watchdog schedule
+# Must be activated by touching the "~/.pyroscope/run/pyrotorque" file!
+# Set the second argument to "-v" or "-q" to change log verbosity.
+schedule = pyro_watchdog,30,300,"pyro.watchdog=~/.pyroscope,"
+
+# UI/VIEW: Show active and incomplete torrents (in view #0) and update every 20 seconds
+# Items are grouped into complete, incomplete, and queued, in that order.
+# Within each group, they're sorted by download and then upload speed.
+branch=pyro.extended=,false=,"view_sort_current = active,greater=d.get_up_rate="
+branch=pyro.extended=,"view_sort_current = active,\"compare=----,d.is_open=,d.get_complete=,d.get_down_rate=,d.get_up_rate=\""
+schedule = filter_active,12,20,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=,not=$d.get_complete=}\" ;view_sort=active"
+
+# Show traffic of the last hour
+network.history.depth.set = 112
+schedule = network_history_sampling,1,32, network.history.sample=
+method.insert = network.history.auto_scale.toggle, simple|private, "branch=network.history.auto_scale=,\"network.history.auto_scale.set=0\",\"network.history.auto_scale.set=1\""
+method.insert = network.history.auto_scale.ui_toggle, simple|private, "network.history.auto_scale.toggle= ;network.history.refresh="
+branch=pyro.extended=,"schedule = bind_auto_scale,0,0,\"ui.bind_key=download_list,=,network.history.auto_scale.ui_toggle=\""
+
+network.port_range.set = 36767-36767
+#scgi_port=127.0.0.1:5000
+network.scgi.open_local = ~/.rtorrent/rtorrent.sock
+execute.nothrow.bg      = chmod,777,~/.rtorrent/rtorrent.sock
+directory.default.set   = ~/Downloads
+session.path.set        = ~/.rtorrent/session
+

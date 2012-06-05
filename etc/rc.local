@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# /etc/rc.local: Local multi-user startup script.
+#
+
+echo -n "enabled" > /sys/class/thermal/thermal_zone0/mode
+rngd -r /dev/urandom
+
+/usr/bin/setkeycodes e025 130
+/usr/bin/setkeycodes e026 131
+/usr/bin/setkeycodes e027 132
+/usr/bin/setkeycodes e029 122
+/usr/bin/setkeycodes e071 134
+/usr/bin/setkeycodes e072 135
+
+echo 0 > /proc/sys/kernel/nmi_watchdog
+echo 3 > /proc/sys/vm/drop_caches
+echo 0 > /sys/kernel/mm/uksm/usr_spt_enabled

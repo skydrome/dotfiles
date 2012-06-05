@@ -1,0 +1,69 @@
+URxvt.iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
+URxvt.font: xft:DejaVuSansMono:size=11
+URxvt.perl-ext-common: default,matcher,tabbedex,clipboard
+
+URxvt.matcher.button:   1
+URxvt.urlLauncher:      firefox-nightly
+
+URxvt*buffered:     true
+URxvt*depth:        32
+URxvt*borderless:   1
+URxvt*scrollBar:    false
+URxvt*saveLines:    3000
+
+URxvt.depth:                32
+URxvt.geometry:             81x24
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+
+! Tabs
+URxvt.tabbed.tabbar-fg:     8
+URxvt.tabbed.tabbar-bg:     0
+URxvt.tabbed.tab-fg:        3
+URxvt.tabbed.tab-bg:        0
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+URxvt.pointerBlank:         true
+URxvt*secondaryScroll:      true
+
+! Colours
+URxvt.background:           [90]#020202
+URxvt.foreground:           #0AFF0A
+!URxvt.fading:               20
+!URxvt.fadeColor:            #002b36
+
+! black
+URxvt.color0:               #073642
+URxvt.color8:               #002636
+! red
+URxvt.color1:               #cc0000
+URxvt.color9:               #ef2929
+! green
+URxvt.color2:               #8ae234
+URxvt.color10:              #4e9a06
+! yellow
+URxvt.color3:               #edd400
+URxvt.color11:              #fce94f
+! blue
+URxvt.color4:               #0A85FF
+URxvt.color12:              #47A3FF
+! magenta
+URxvt.color5:               #ad7fa8
+URxvt.color13:              #5c3566
+! cyan
+URxvt.color6:               #204a87
+URxvt.color14:              #729fcf
+! white
+URxvt.color7:               #eeeeec
+URxvt.color15:              #d3d7cf
+
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintsfull
+Xft.lcdfilter:              lcddefault
+
