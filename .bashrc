@@ -39,6 +39,12 @@ sizeofdir() { # show size of all directories in current working directory
         egrep '^ *[0-9.]*G' /tmp/list
     rm /tmp/list
 }
+
+start()   { for arg in $* ;do sudo /etc/rc.d/$arg start   ;done ;}
+stop()    { for arg in $* ;do sudo /etc/rc.d/$arg stop    ;done ;}
+restart() { for arg in $* ;do sudo /etc/rc.d/$arg restart ;done ;}
+reload()  { for arg in $* ;do sudo /etc/rc.d/$arg reload  ;done ;}
+
 alias sizeof='du -sh'
 alias df='df -h -T --total'
 
