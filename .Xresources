@@ -5,13 +5,14 @@ URxvt.perl-ext-common: default,matcher,tabbedex,clipboard
 
 URxvt.matcher.button:   1
 URxvt.urlLauncher:      firefox-nightly
-URxvt.matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt.matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!URxvt.matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!URxvt.matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 URxvt.buffered:             true
-URxvt.borderless:           true
 URxvt.scrollBar:            false
-URxvt.saveLines:            3000
+URxvt.scrollTtyOutput:      false
+URxvt.scrollWithBuffer:     true
+URxvt.saveLines:            1000
 
 URxvt.depth:                32
 URxvt.geometry:             84x26
@@ -32,9 +33,9 @@ URxvt.pointerBlank:         true
 URxvt.secondaryScroll:      true
 
 ! Colours
-URxvt.background:           [90]#020202
+URxvt.background:           [85]#020202
 URxvt.foreground:           #0AFF0A
-URxvt.fading:               40
+URxvt.fading:               50
 URxvt.fadeColor:            #010101
 
 ! black
