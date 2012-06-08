@@ -1,12 +1,14 @@
 URxvt.iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-URxvt.termName: rxvt
-URxvt.font: xft:DejaVuSansMono:size=11
+URxvt.termName: rxvt-256color
+URxvt.font:     xft:DejaVuSansMono:size=11
+URxvt.boldFont: xft:DejaVuSansMono:size=11
 URxvt.perl-ext-common: default,matcher,tabbedex,clipboard
 
 URxvt.matcher.button:   1
 URxvt.urlLauncher:      firefox-nightly
 !URxvt.matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 !URxvt.matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.colorURL:         #86a2be
 
 URxvt.buffered:             true
 URxvt.scrollBar:            false
@@ -67,6 +69,6 @@ Xft.dpi:                    96
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
-Xft.hintstyle:              hintsfull
+Xft.hintstyle:              hintfull
 Xft.lcdfilter:              lcddefault
 
