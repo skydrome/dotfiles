@@ -14,12 +14,8 @@ xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-DEFAULT_SESSION='startxfce4'
-case $1 in
-	xfce) exec ck-launch-session startxfce4 ;;
-    herbstluftwm) exec ck-launch-session i3 -V >>~/.i3/i3log >&1 ;;
-	*) exec ck-launch-session $DEFAULT_SESSION ;;
-esac
+exec startxfce4 --with-ck-launch
+urxvtd -q -o -f
 
 xmodmap ~/.Xmodmap
 xinput set-int-prop "Synaptics Mouse" "Synaptics Two-Finger Pressure" 32 10

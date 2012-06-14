@@ -57,7 +57,7 @@ alias ly="ls -rS"           # sort by size
 alias ns='netstat -alnp --protocol=inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | tail'
 alias nsw='sudo watch -n 3 -d -t netstat -vantp'
 alias openports='netstat --all --numeric --programs --inet'
-
+alias pacman='sudo pacman'
 alias nightmode='xflux -z 27613'
 alias axel='axel -a'
 alias wget='axel'

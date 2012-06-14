@@ -35,10 +35,10 @@ URxvt.pointerBlank:         true
 URxvt.secondaryScroll:      true
 
 ! Colours
-URxvt.background:           [85]#020202
+URxvt.background:           [90]#020202
 URxvt.foreground:           #0AFF0A
 URxvt.fading:               50
-URxvt.fadeColor:            #010101
+URxvt.fadeColor:            #000000
 
 ! black
 URxvt.color0:               #073642
@@ -69,6 +69,6 @@ Xft.dpi:                    96
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
-Xft.hintstyle:              hintfull
+Xft.hintstyle:              hintmedium
 Xft.lcdfilter:              lcddefault
 
