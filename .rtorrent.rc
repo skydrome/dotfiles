@@ -32,9 +32,9 @@ schedule = watch_directory,5,5,"load.start=~/.rtorrent/watch/*.torrent,d.delete_
 
 log.open_file = "rtorrent", ~/.rtorrent/logs/rtorrent.log
 log.add_output = "debug", "rtorrent"
-#log.add_output = "connection_debug", "rtorrent"
+#log.add_output = "thread_debug", "rtorrent"
 
-#ipv4_filter.load = ~/.rtorrent/ipfilter, unwanted
+ipv4_filter.load = ~/.rtorrent/ipfilter, unwanted
 
 ## Below Generated From Auto Script ##
 
