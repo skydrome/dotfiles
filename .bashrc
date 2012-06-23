@@ -39,6 +39,9 @@ sizeofdir() { # show size of all directories in current working directory
         egrep '^ *[0-9.]*G' /tmp/list
     rm /tmp/list
 }
+mcd() {
+  mkdir -p "$1" && cd "$1"
+}
 
 start()   { for arg in $* ;do sudo /etc/rc.d/$arg start   ;done ;}
 stop()    { for arg in $* ;do sudo /etc/rc.d/$arg stop    ;done ;}
@@ -47,13 +50,15 @@ reload()  { for arg in $* ;do sudo /etc/rc.d/$arg reload  ;done ;}
 
 alias sizeof='du -sh'
 alias df='df -h -T --total'
-
+alias gst='git status --short --untracked-files'
 alias ls="ls -lha -A --color"
 alias lt="ls -rt"           # sort by modification time
 alias lw="ls -1"            # windows-style list
 alias lx="ls -BX"           # sort by extension
 alias ly="ls -rS"           # sort by size
-
+alias md='mkdir -p'
+alias rd=rmdir
+alias d='dirs -v | head -10'
 alias ns='netstat -alnp --protocol=inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | tail'
 alias nsw='sudo watch -n 3 -d -t netstat -vantp'
 alias openports='netstat --all --numeric --programs --inet'
@@ -75,9 +80,7 @@ alias less="less -iF"
 alias more="less"
 
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
-alias traceroute='grc -s traceroute-for-linux'
-alias netstat='grc -s netstat'
-alias ping='grc -s ping -c 5'
+alias traceroute='traceroute-for-linux'
 
 rtorrent_start() {
     dtach -n ~/.dtach/rtorrent rtorrent
