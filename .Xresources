@@ -1,72 +1,78 @@
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintmedium
-Xft.lcdfilter:              lcddefault
+Xft*dpi:                    96
+Xft*antialias:              true
+Xft*rgba:                   rgb
+Xft*hinting:                true
+Xft*hintstyle:              hintmedium
+Xft*lcdfilter:              lcddefault
 
+URxvt*iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
+URxvt*font:     xft:DejaVuSansMono:size=11
+URxvt*perl-ext-common: default,matcher,tabbedex,clipboard
 
-URxvt.iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-URxvt.termName: rxvt-unicode-256color
-URxvt.font:     xft:DejaVuSansMono:size=11
-URxvt.boldFont: xft:DejaVuSansMono:size=11
-URxvt.perl-ext-common: default,matcher,tabbedex,clipboard
+URxvt*matcher.button:       1
+URxvt*urlLauncher:          firefox-nightly
+URxvt*matcher.pattern.1:   \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt*matcher.pattern.2:   \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt*colorURL:             yellow
 
-URxvt.matcher.button:   1
-URxvt.urlLauncher:      firefox-nightly
-!URxvt.matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-!URxvt.matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt.colorURL:         yellow
+URxvt*buffered:             true
+URxvt*scrollBar:            false
+URxvt*scrollBar_right:      false
+URxvt*borderLess:           false
+URxvt*secondaryWheel:       true
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:	true
+URxvt*saveLines:            5000
+URxvt*urgentOnBell:         true
 
-URxvt.buffered:             true
-URxvt.scrollBar:            false
-URxvt.scrollTtyOutput:      false
-URxvt.scrollWithBuffer:     true
-URxvt.saveLines:            1000
-
-URxvt.depth:                32
-URxvt.geometry:             86x26
-URxvt.internalBorder:       3
-URxvt.lineSpace:            0
+URxvt*depth:                32
+URxvt*geometry:             86x26
+URxvt*internalBorder:       3
+URxvt*lineSpace:            0
 
 ! Tabs
-URxvt.tabbed.tabbar-fg:     8
-URxvt.tabbed.tabbar-bg:     0
-URxvt.tabbed.tab-fg:        3
-URxvt.tabbed.tab-bg:        0
+URxvt*tabbed.tabbar-fg:     8
+URxvt*tabbed.tabbar-bg:     0
+URxvt*tabbed.tab-fg:        3
+URxvt*tabbed.tab-bg:        0
 
 ! Cursor
-URxvt.cursorColor:#888888
-URxvt.cursorBlink:          true
-URxvt.cursorUnderline:      false
-URxvt.secondaryScroll:      true
-URxvt.pointerColor:         gray
-URxvt.pointerColorBackground:black
-URxvt.pointerBlank:         false
-URxvt.pointerBlankDelay:    2
+URxvt*cursorBlink:          true
+URxvt*cursorUnderline:      false
+URxvt*pointerBlank:         true
+URxvt*pointerBlankDelay:    2
 
-! Colours
+! Colors
+URxvt*cursorColor:          #95C749
+URxvt*pointerColor:         gray
+URxvt*fading:               25
+URxvt*fadeColor:            #000000
 *.background:               [90]#050505
 *.foreground:               #0AFF0A
-URxvt.fading:               50
-!URxvt.fadeColor:            #000000
-URxvt.dynamicColors:on
-
-
-*color0:  rgb:00/00/00
-*color1:  rgb:4C/8C/38
-*color2:  rgb:27/CA/25
-*color3:  rgb:A4/00/8A
-*color4:  rgb:5f/7b/8a
-*color5:  rgb:1D/90/B6
-*color6:  rgb:68/68/68
-*color7:  rgb:ff/ff/ff
-*color8:  rgb:3C/3C/3C
-*color9:  rgb:D6/93/00
-*color10: rgb:95/c7/49
-*color11: rgb:BB/00/5e
-*color12: rgb:6b/7b/8a
-*color13: rgb:BB/7D/00
-*color14: rgb:36/7F/C5
-*color15: rgb:ff/ff/ff
+    
+!black
+*color0: #3b3d3e
+*color8: #505354
+!red
+*color1: #875f5f
+*color9: #f55d60
+!green
+*color2: #82b414
+*color10: #b6e354
+!yellow
+*color3: #fd971f
+*color11: #ffe93e
+!blue
+*color4: #56c2d6
+*color12: #8cedff
+!magenta
+*color5: #8c54fe
+*color13: #9e6ffe
+!cyan
+*color6: #6664a7
+*color14: #888cb1
+!white
+*color7: #ccccc6
+*color15: #f8f8f2
 

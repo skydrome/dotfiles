@@ -1,3 +1,30 @@
+export BROWSER="firefox-nightly"
+export EDITOR="nano"
+export VISUAL="nano"
+export PAGER="less"
+export LC_CTYPE=$LANG
+
+export CC=gcc CXX=g++
+export CFLAGS="-march=native -mtune=native -mfpmath=sse -O3 -pipe -fstack-protector-all -D_FORTIFY_SOURCE=2 --param=ssp-buffer-size=4" CXXFLAGS="-std=gnu++11 $CFLAGS"
+export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now"
+export MAKEFLAGS="-j2"
+export PKG_CONFIG=/usr/bin/pkgconf
+export LD_PRELOAD="/home/chris/src/stderred/lib/libstderred.so"
+
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="4;1;31"
+
+eval $(dircolors ~/.zsh/dircolors)
+[[ $TERM == xterm ]] && export TERM=xterm-256color
+
+export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m' # begin bold
+export LESS_TERMCAP_me=$'\E[0m'     # end mode
+export LESS_TERMCAP_so=$'\E[01;36m' # begin standout-mode
+export LESS_TERMCAP_se=$'\E[0m'     # end standout-mode
+export LESS_TERMCAP_us=$'\E[00;34m' # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'     # end underline
+
 extract() {
     local extract_dir="$( echo "$file_name" | sed "s/\.${1##*.}//g" )"
     for i in "$@" ;do
@@ -48,6 +75,7 @@ stop()    { for arg in $* ;do sudo /etc/rc.d/$arg stop    ;done ;}
 restart() { for arg in $* ;do sudo /etc/rc.d/$arg restart ;done ;}
 reload()  { for arg in $* ;do sudo /etc/rc.d/$arg reload  ;done ;}
 
+alias x='exec startx'
 alias sizeof='du -sh'
 alias df='df -h -T --total'
 alias gst='git status --short --untracked-files'
@@ -78,24 +106,16 @@ alias chfile='chmod 644'
 alias chdir='chmod 755'
 alias less="less -iF"
 alias more="less"
-
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
 alias traceroute='traceroute-for-linux'
 
 rtorrent_start() {
-    dtach -n ~/.dtach/rtorrent rtorrent
+    dtach -n ~/.rtorrent/rtorrent.dtach rtorrent
     [[ ! -z $(pgrep -u "$USER" "rtorrent") ]] &&
         echo "rtorrent start successfully" || echo "rtorrent failed to start"
 }
-rtorrent_resume() { dtach -a .dtach/rtorrent ;}
-
-export TERM=xterm-256color
-export CC=gcc CXX=g++ \
-       CFLAGS="-march=native -mtune=native -mfpmath=sse -O3 -pipe -fstack-protector-all -D_FORTIFY_SOURCE=2 --param=ssp-buffer-size=4" CXXFLAGS="-std=gnu++11 $CFLAGS" \
-       LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now" \
-       MAKEFLAGS="-j2"
-export PKG_CONFIG=/usr/bin/pkgconf
-#export PATH="~/bin:$PATH"
-export OWL_SUDO_WARN=false BROWSER=firefox-nightly XDG_AUR_HOME=~/src/aur
+rtorrent_resume() {
+    dtach -a ~/.rtorrent/rtorrent.dtach
+}
 
 source ~/.private
