@@ -9,7 +9,6 @@ export CFLAGS="-march=native -mtune=native -mfpmath=sse -O3 -pipe -fstack-protec
 export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now"
 export MAKEFLAGS="-j2"
 export PKG_CONFIG=/usr/bin/pkgconf
-export LD_PRELOAD="/home/chris/src/stderred/lib/libstderred.so"
 
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="4;1;31"
