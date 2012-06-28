@@ -26,11 +26,7 @@ launch() {
 }
 
 case ${2:-xfce4} in
-    xfce4)
-        launch startxfce4 --with-ck-launch
-        rxvtd -q -o -f &
-        ;;
-    *)
-        echo >&2 "Unrecognized command $2"; exit 1
+    xfce4) launch startxfce4 --with-ck-launch ;;
+    *    ) echo >&2 "Unrecognized command $2"; exit 1 ;;
 esac
 
