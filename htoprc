@@ -18,6 +18,6 @@ cpu_count_from_zero=1
 color_scheme=0
 delay=15
 left_meters=AllCPUs Memory Swap
-left_meter_modes=2 2 2
+left_meter_modes=1 1 1
 right_meters=Tasks Uptime LoadAverage
 right_meter_modes=2 2 2
