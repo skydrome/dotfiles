@@ -1,4 +1,4 @@
-Xft*dpi:                    96
+Xft*dpi:                    97
 Xft*antialias:              true
 Xft*rgba:                   rgb
 Xft*hinting:                true
@@ -7,8 +7,7 @@ Xft*lcdfilter:              lcddefault
 
 !URxvt*termName:             rxvt-unicode-256color
 URxvt*iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-!URxvt*font:     xft:DejaVuSansMono:size=11
-URxvt*font:      xft:Inconsolata:size=11
+URxvt*font:     xft:DejaVuSansMono:size=11
 URxvt*perl-ext-common: default
 
 URxvt*buffered:             true
