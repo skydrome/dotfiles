@@ -5,8 +5,10 @@ Xft*hinting:                true
 Xft*hintstyle:              hintmedium
 Xft*lcdfilter:              lcddefault
 
+!URxvt*termName:             rxvt-unicode-256color
 URxvt*iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-URxvt*font:     xft:DejaVuSansMono:size=11
+!URxvt*font:     xft:DejaVuSansMono:size=11
+URxvt*font:      xft:Inconsolata:size=11
 URxvt*perl-ext-common: default
 
 URxvt*buffered:             true
@@ -38,35 +40,35 @@ URxvt*pointerBlank:         true
 URxvt*pointerBlankDelay:    2
 
 ! Colors
-URxvt*cursorColor:          #95C749
+URxvt*cursorColor:          #66ff66
 URxvt*pointerColor:         gray
 URxvt*fading:               25
 URxvt*fadeColor:            #000000
 *.background:               [90]#050505
 *.foreground:               #0AFF0A
-    
+
 !black
-*color0: #3b3d3e
-*color8: #505354
+*color0:        #1c1c1c
+*color8:        #4d4d4d
 !red
-*color1: #875f5f
-*color9: #f55d60
+*color1:        #D81860
+*color9:        #F00060
 !green
-*color2: #82b414
-*color10: #b6e354
+*color2:        #60FF60
+*color10:       #70FF70
 !yellow
-*color3: #fd971f
-*color11: #ffe93e
+*color3:        #f9fd75
+*color11:       #f9fd75
 !blue
-*color4: #56c2d6
-*color12: #8cedff
+*color4:        #4695c8
+*color12:       #4e98c8
 !magenta
-*color5: #8c54fe
-*color13: #9e6ffe
+*color5:        #a78edb
+*color13:       #ae99db
 !cyan
-*color6: #6664a7
-*color14: #888cb1
+*color6:        #43afce
+*color14:       #50b2ce
 !white
-*color7: #ccccc6
-*color15: #f8f8f2
+*color7:        #f3ebe2
+*color15:       #EEEEEC
 

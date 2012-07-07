@@ -3,13 +3,6 @@
 # ~/.xinitrc
 #
 
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
-
 xset +fp /usr/share/fonts/local
 xset fp rehash &
 xrdb -merge ~/.Xresources &
@@ -22,7 +15,7 @@ xinput set-int-prop "Synaptics Mouse" "Synaptics Two-Finger Scrolling" 4 1 1
 xinput set-int-prop "Synaptics Mouse" "Synaptics Jumpy Cursor Threshold" 32 150
 
 launch() {
-  exec ck-launch-session $*
+  exec ck-launch-session dbus-launch $*
 }
 
 case ${2:-xfce4} in
