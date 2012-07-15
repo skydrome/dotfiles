@@ -9,7 +9,7 @@ function preexec {
 
 function _title {
   case $TERM in
-  vte*|*xterm*|rxvt*|(dt|k|E)term)
+  termite|vte*|*xterm*|rxvt*|(dt|k|E)term)
       print -Pn "\e]2;$2:q\a"
       print -Pn "\e]1;$1:q\a"
       ;;

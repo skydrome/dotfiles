@@ -14,14 +14,13 @@ xinput set-int-prop "Synaptics Mouse" "Two-Finger Scrolling" 4 1
 xinput set-int-prop "Synaptics Mouse" "Synaptics Two-Finger Scrolling" 4 1 1
 xinput set-int-prop "Synaptics Mouse" "Synaptics Jumpy Cursor Threshold" 32 150
 
-mpd
-
 launch() {
   exec ck-launch-session dbus-launch $*
 }
 
-case ${2:-xfce4} in
+case ${2:-openbox} in
     xfce4) launch startxfce4 --with-ck-launch ;;
+    openbox) launch openbox-session ;;
     *    ) echo >&2 "Unrecognized command $2"; exit 1 ;;
 esac
 

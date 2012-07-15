@@ -13,6 +13,8 @@ rngd -r /dev/urandom
 /usr/bin/setkeycodes e071 134
 /usr/bin/setkeycodes e072 135
 
+[[ -e /proc/sys/kernel/nmi_watchdog ]] &&
 echo 0 > /proc/sys/kernel/nmi_watchdog
 echo 3 > /proc/sys/vm/drop_caches
 echo 0 > /sys/kernel/mm/uksm/usr_spt_enabled
+echo 5 > /proc/sys/vm/laptop_mode

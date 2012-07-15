@@ -77,7 +77,7 @@ default_tag_editor_pattern = "%n - %t"
 titles_visibility = "yes"
 fancy_scrolling = "yes"
 header_text_scrolling = "yes"
-cyclic_scrolling = "yes"
+cyclic_scrolling = "no"
 follow_now_playing_lyrics = "no"
 ncmpc_like_songs_adding = "no" (enabled - add/remove, disabled - always add)
 enable_window_title = "yes"
@@ -87,7 +87,7 @@ selected_item_suffix = "$9$/b"
 
 # user interface
 user_interface = "alternative" (classic/alternative)
-startup_screen = "5"
+startup_screen = "2"
 # playlist
 now_playing_prefix = "$b$1» "
 now_playing_suffix = "$/b"
