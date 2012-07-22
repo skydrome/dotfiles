@@ -19,7 +19,6 @@ launch() {
 }
 
 case ${2:-openbox} in
-    xfce4) launch startxfce4 --with-ck-launch ;;
     openbox) launch openbox-session ;;
     *    ) echo >&2 "Unrecognized command $2"; exit 1 ;;
 esac

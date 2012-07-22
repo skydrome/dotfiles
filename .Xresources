@@ -8,7 +8,7 @@ Xft*lcdfilter:              lcddefault
 !URxvt*termName:             rxvt-unicode-256color
 URxvt*iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
 URxvt*font:     xft:DejaVuSansMono:size=11
-URxvt*perl-ext-common: default
+URxvt*perl-ext-common: default,clipboard
 
 URxvt*buffered:             true
 URxvt*scrollBar:            false

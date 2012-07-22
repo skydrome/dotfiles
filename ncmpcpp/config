@@ -1,15 +1,15 @@
 #=================================#
 #||        N C M P C P P        ||#
 #=================================#
-ncmpcpp_directory = "/home/chris/.ncmpcpp"
+ncmpcpp_directory = "~/.ncmpcpp"
 
 # -----
 #  MPD
 # -----
 #mpd_host = "127.0.0.1"
 #mpd_port = "6600"
-mpd_host = "/home/chris/.mpd/mpd.socket"
-mpd_music_dir = "/home/chris/Music"
+mpd_host = "/tmp/.mpd.socket"
+mpd_music_dir = "~/Music"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 mpd_communication_mode = "notifications"

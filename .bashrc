@@ -3,19 +3,19 @@ export EDITOR="nano"
 export VISUAL="nano"
 export PAGER="less"
 export LC_CTYPE=$LANG
+export DE=xfce
 
 export CC=gcc CXX=g++
 export CFLAGS="-march=native -mtune=native -mfpmath=sse -O3 -pipe -fstack-protector-all -D_FORTIFY_SOURCE=2 --param=ssp-buffer-size=4" CXXFLAGS="-std=gnu++11 $CFLAGS"
 export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now"
 export MAKEFLAGS="-j2"
-export PKG_CONFIG=/usr/bin/pkgconf
-#export PKG_CONFIG=/usr/bin/pkg-config
 
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="4;1;31"
 
 eval $(dircolors ~/.zsh/dircolors)
 [[ $TERM == xterm ]] && export TERM=xterm-256color
+[[ $TERM == screen ]] && export TERM=screen-256color
 
 export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
 export LESS_TERMCAP_md=$'\E[01;31m' # begin bold
@@ -27,9 +27,9 @@ export LESS_TERMCAP_ue=$'\E[0m'     # end underline
 
 sizeofdir() { # show size of all directories in current working directory
     du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
-        egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
-        egrep '^ *[0-9.]*M' /tmp/list
-        egrep '^ *[0-9.]*G' /tmp/list
+        grep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
+        grep '^ *[0-9.]*M' /tmp/list
+        grep '^ *[0-9.]*G' /tmp/list
     rm /tmp/list
 }
 mcd() {
