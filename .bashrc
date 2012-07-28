@@ -44,6 +44,7 @@ reload()  { for arg in $* ;do sudo /etc/rc.d/$arg reload  ;done ;}
 alias x='exec startx'
 alias sizeof='du -sh'
 alias df='df -h -T --total'
+alias git='hub'
 alias gst='git status --short --untracked-files'
 alias ls="ls -lha -A --color"
 alias lt="ls -rt"           # sort by modification time

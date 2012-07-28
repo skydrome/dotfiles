@@ -15,7 +15,7 @@ xinput set-int-prop "Synaptics Mouse" "Synaptics Two-Finger Scrolling" 4 1 1
 xinput set-int-prop "Synaptics Mouse" "Synaptics Jumpy Cursor Threshold" 32 150
 
 launch() {
-  exec ck-launch-session dbus-launch $*
+    exec ck-launch-session dbus-launch $*
 }
 
 case ${2:-openbox} in
