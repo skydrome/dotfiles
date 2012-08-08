@@ -1,4 +1,5 @@
-export BROWSER="firefox-nightly"
+#export BROWSER="firefox-nightly"
+export BROWSER="chromium"
 export EDITOR="nano"
 export VISUAL="nano"
 export PAGER="less"
@@ -58,10 +59,11 @@ alias ns='netstat -alnp --protocol=inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | 
 alias nsw='sudo watch -n 3 -d -t netstat -vantp'
 alias openports='netstat --all --numeric --programs --inet'
 alias pacman='sudo pacman-color'
+alias upgrade='sudo pplsyu'
+alias install='sudo ppls'
 alias rc.d='sudo rc.d'
 alias nightmode='xflux -z 27613'
-alias axel='axel -a'
-alias wget='axel'
+alias get='aria2c --file-allocation=falloc -c -j 4 -x 2'
 alias ccopt='gcc -c -Q -O3 --help=optimizers | grep enabled'
 alias ed='pluma'
 alias findcpu='echo "" | gcc -march=native -v -E - 2>&1 | grep cc1'
