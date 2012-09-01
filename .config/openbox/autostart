@@ -1,0 +1,20 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+compton &
+nitrogen --restore &
+xflux -z 11577 &
+
+tint2 &
+dmenu -i -l 2 &
+pnmixer &
+
+mpd &
+urxvt &
+spacefm -d &
+
+gpg-agent --daemon &
+claws-mail &
