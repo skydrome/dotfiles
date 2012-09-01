@@ -5,10 +5,13 @@ Xft*hinting:                true
 Xft*hintstyle:              hintmedium
 Xft*lcdfilter:              lcddefault
 
-!URxvt*termName:             rxvt-unicode-256color
+URxvt*termName:             rxvt-unicode-256color
 URxvt*iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-URxvt*font:     xft:DejaVuSansMono:size=11
-URxvt*perl-ext-common: default,clipboard
+URxvt.font:     xft:DejaVu Sans Mono:pixelsize=11
+URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11
+URxvt.perl-ext-common: default,clipboard,matcher,tabbed
+URxvt.urlLauncher:  /usr/bin/chromium
+URxvt.matcher.button:   1
 
 URxvt*buffered:             true
 URxvt*scrollBar:            false
@@ -17,7 +20,7 @@ URxvt*borderLess:           false
 URxvt*secondaryWheel:       true
 URxvt*scrollTtyOutput:      false
 URxvt*scrollWithBuffer:     true
-URxvt*scrollTtyKeypress:	true
+URxvt*scrollTtyKeypress:    true
 URxvt*saveLines:            5000
 URxvt*urgentOnBell:         true
 
@@ -43,7 +46,7 @@ URxvt*cursorColor:          #66ff66
 URxvt*pointerColor:         gray
 URxvt*fading:               25
 URxvt*fadeColor:            #000000
-*.background:               [90]#050505
+*.background:               [85]#050505
 *.foreground:               #0AFF0A
 
 !black
@@ -70,4 +73,3 @@ URxvt*fadeColor:            #000000
 !white
 *color7:        #f3ebe2
 *color15:       #EEEEEC
-
