@@ -46,30 +46,109 @@ URxvt*cursorColor:          #66ff66
 URxvt*pointerColor:         gray
 URxvt*fading:               25
 URxvt*fadeColor:            #000000
-*.background:               [85]#050505
-*.foreground:               #0AFF0A
+
+*foreground: #c8c8c8
+*background: [85]#111111
 
 !black
-*color0:        #1c1c1c
-*color8:        #4d4d4d
+*color0:  #251f1f
+*color8:  #5e5e5e
 !red
-*color1:        #D81860
-*color9:        #F00060
+*color1:  #eb4509
+*color9:  #eb4509
 !green
-*color2:        #60FF60
-*color10:       #70FF70
+*color2:  #94e76b
+*color10: #95e76b
 !yellow
-*color3:        #f9fd75
-*color11:       #f9fd75
+*color3:  #ffac18
+*color11: #ffac18
 !blue
-*color4:        #4695c8
-*color12:       #4e98c8
+*color4:  #46aede
+*color12: #46aede
 !magenta
-*color5:        #a78edb
-*color13:       #ae99db
+*color5:  #e32c57
+*color13: #e32c57
 !cyan
-*color6:        #43afce
-*color14:       #50b2ce
+*color6:  #06989a
+*color14: #06989a
 !white
-*color7:        #f3ebe2
-*color15:       #EEEEEC
+*color7:  #efefef
+*color15: #efefef
+
+!! Menu background
+menu.items.bg: flat solid
+menu.items.bg.color: #181818
+
+!! Menu text
+menu.items.text.color: #777777
+menu.items.justify: left
+menu.items.disabled.text.color: #d9d9d9
+
+!! Menu headers
+menu.title.bg: flat Gradient vertical
+menu.title.bg.color: #999999
+menu.title.bg.colorTo: #555555
+menu.title.text.color: #181818
+menu.title.text.justify: Left
+
+!! Selected menu item
+menu.items.active.bg: flat Gradient Vertical
+menu.items.active.bg.color: #999999
+menu.items.active.bg.colorTo: #555555
+menu.items.active.text.color: #181818
+
+!! Titlebar
+window.active.title.bg: flat solid
+window.active.title.bg.color: #181818
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #181818
+
+!! Titlebar text
+window.label.text.justify: left
+window.active.label.bg: parentrelative
+window.active.label.text.color: #777777
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #555555
+
+!! Window buttons
+window.*.button.*.bg: parentrelative
+window.active.button.*.hover.bg: parentrelative
+window.inactive.button.*.hover.bg: parentrelative
+window.*.button.*.pressed.bg: parentrelative
+
+window.active.button.*.pressed.image.color: #777777
+window.inactive.button.*.pressed.image.color: #555555
+
+window.active.button.*.hover.image.color: #777777
+window.inactive.button.*.hover.image.color: #555555
+
+window.active.button.*.image.color: #777777
+window.inactive.button.*.image.color: #555555
+
+!! Borders
+window.active.border.color: #333333
+window.inactive.border.color: #333333
+window.active.title.separator.color: #181818
+window.inactive.title.separator.color: #181818
+border.width: 1
+padding.width: 2
+padding.height: 2
+window.active.handle.bg: flat solid
+window.active.handle.bg.color: #777777
+window.active.grip.bg: parentrelative
+window.inactive.handle.bg: flat solid
+window.inactive.handle.bg.color: #777777
+window.inactive.grip.bg: parentrelative
+window.handle.width: 0
+window.active.client.color:  #181818
+window.inactive.client.color:  #181818
+window.client.padding.width: 0
+window.client.padding.height: 0
+menu.overlap: -3
+
+!! On-screen displays
+osd.hilight.bg: flat Gradient Vertical
+osd.hilight.bg.color: #999999
+osd.hilight.bg.colorTo: #5555555
+osd.bg: flat solid
+osd.bg.color: #181818
