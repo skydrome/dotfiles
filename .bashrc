@@ -27,25 +27,20 @@ mcd() {
   mkdir -p "$1" && cd "$1"
 }
 
-start()   { for arg in $* ;do sudo /etc/rc.d/$arg start   ;done ;}
-stop()    { for arg in $* ;do sudo /etc/rc.d/$arg stop    ;done ;}
-restart() { for arg in $* ;do sudo /etc/rc.d/$arg restart ;done ;}
-reload()  { for arg in $* ;do sudo /etc/rc.d/$arg reload  ;done ;}
+start()   { for arg in $* ;do sudo systemctl start   $arg ;done ;}
+stop()    { for arg in $* ;do sudo systemctl stop    $arg ;done ;}
+restart() { for arg in $* ;do sudo systemctl restart $arg ;done ;}
 
 alias sizeof='du -sh'
 alias df='df -h -T'
-#alias git='hub'
-#alias gst='git status --short --untracked-files'
+alias gst='git status --short --untracked-files'
 alias ls="ls --group-directories-first -lha -A"
 alias md='mkdir -p'
 alias rd=rmdir
 
-#alias pacman='sudo pacman-color'
-alias upgrade='sudo pplsyu'
-alias install='sudo ppls'
-#alias rc.d='sudo rc.d'
+alias pacman='sudo pacman-color'
+alias backup='~/rsync.sh'
 alias nightmode='xflux -z 11577'
-#alias get='aria2c --summary-interval=0 --file-allocation=falloc -c -j 4 -x 2'
 alias get='axel'
 
 alias ccopt='gcc -c -Q -O3 --help=optimizers | grep enabled'
