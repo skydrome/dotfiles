@@ -17,4 +17,4 @@ urxvt &
 spacefm -d &
 
 gpg-agent --daemon &
-claws-mail &
+thunderbird &

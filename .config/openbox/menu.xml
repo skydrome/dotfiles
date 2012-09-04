@@ -53,8 +53,8 @@
         <item label="Medit">
             <action name="Execute"><command>medit</command></action>
         </item>
-        <item label="Claws">
-            <action name="Execute"><command>claws-mail</command></action>
+        <item label="Thunderbird">
+            <action name="Execute"><command>thunderbird</command></action>
         </item>
         <item label="SpaceFM">
             <action name="Execute"><command>spacefm</command></action>
