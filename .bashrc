@@ -34,7 +34,7 @@ restart() { for arg in $* ;do sudo systemctl restart $arg ;done ;}
 alias sizeof='du -sh'
 alias df='df -h -T'
 alias gst='git status --short --untracked-files'
-alias ls="ls --group-directories-first -lha -A"
+alias ls="ls --group-directories-first -lha -A --color=auto"
 alias md='mkdir -p'
 alias rd=rmdir
 

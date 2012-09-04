@@ -7,11 +7,11 @@ Xft*lcdfilter:              lcddefault
 
 URxvt*termName:             rxvt-unicode-256color
 URxvt*iconFile: /usr/share/icons/Tango/scalable/apps/terminal.svg
-URxvt.font:     xft:DejaVu Sans Mono:pixelsize=11
-URxvt.boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11
-URxvt.perl-ext-common: default,clipboard,matcher,tabbed
-URxvt.urlLauncher:  /usr/bin/chromium
-URxvt.matcher.button:   1
+URxvt*font:     xft:DejaVu Sans Mono:pixelsize=11
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11
+URxvt*perl-ext-common: default,clipboard,matcher,tabbed
+URxvt*urlLauncher:  /usr/bin/chromium
+URxvt*matcher.button:   1
 
 URxvt*buffered:             true
 URxvt*scrollBar:            false
