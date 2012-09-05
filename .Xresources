@@ -48,7 +48,7 @@ URxvt*fading:               25
 URxvt*fadeColor:            #000000
 
 *foreground: #c8c8c8
-*background: [85]#111111
+*background: [90]#111111
 
 !black
 *color0:  #251f1f
