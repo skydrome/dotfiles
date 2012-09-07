@@ -6,6 +6,9 @@
 #export GTK2_RC_FILES="~/.gtkrc-2.0"
 export PATH="$HOME/bin:${PATH}"
 
+xset +dpms
+xset dpms 0 0 300
+
 xset +fp /usr/share/fonts/local
 xset fp rehash &
 xrdb -merge ~/.Xresources &
