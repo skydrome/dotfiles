@@ -4,6 +4,7 @@
 # to run user-specific things.
 #
 
+sudo power &
 compton &
 nitrogen --restore &
 xflux -z 11577 &

@@ -6,7 +6,7 @@ autoq=90
 vf=pp=fa
 lavdopts=lowres=1:skiploopfilter=all:fast=1:threads=2
 
-ao=alsa
+ao=pulse
 mc=0.2
 autosync=30
 delay=0.5
