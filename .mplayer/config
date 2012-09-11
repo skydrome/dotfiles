@@ -1,15 +1,18 @@
 vo=xv
+double=yes
 framedrop=1
 hardframedrop=0
 monitoraspect=16:9
-autoq=90
-vf=pp=fa
-lavdopts=lowres=1:skiploopfilter=all:fast=1:threads=2
+autoq=100
+
+vf=eq,pp=de,hqdn3d
+lavdopts=fast=1:threads=2
+#vf=pp=fa
+#lavdopts=lowres=1:skiploopfilter=all:fast=1:threads=2
 
 ao=pulse
 mc=0.2
 autosync=30
-delay=0.5
 channels=2
 
 #softvol=1

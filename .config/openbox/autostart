@@ -15,7 +15,5 @@ pnmixer &
 
 mpd &
 urxvt &
-spacefm -d &
 
 gpg-agent --daemon &
-thunderbird &

@@ -54,7 +54,7 @@
             <action name="Execute"><command>medit</command></action>
         </item>
         <item label="Thunderbird">
-            <action name="Execute"><command>thunderbird</command></action>
+            <action name="Execute"><command>thunderbird-nightly</command></action>
         </item>
         <item label="SpaceFM">
             <action name="Execute"><command>spacefm</command></action>
