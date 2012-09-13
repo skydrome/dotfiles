@@ -6,20 +6,20 @@
 # ID 1
 rounded = 6
 border_width = 0
-background_color = #1F1F1F 65
+background_color = #1F1F1F 64
 border_color = #656565 100
 
 # ID 2
 rounded = 4
 border_width = 1
-background_color = #111111 95
-border_color = #E2E2E2 31
+background_color = #111111 94
+border_color = #E2E2E2 30
 
 # ID 3
 rounded = 8
 border_width = 1
-background_color = #171717 78
-border_color = #464646 45
+background_color = #171717 77
+border_color = #464646 44
 
 # ID 4
 rounded = 5
@@ -30,7 +30,7 @@ border_color = #FFFFFF 100
 # Panel
 panel_monitor = all
 panel_position = bottom center horizontal
-panel_size = 99% 23
+panel_size = 100% 23
 panel_margin = 0 0
 panel_padding = 1 1 3
 panel_dock = 0
@@ -86,13 +86,13 @@ systray_icon_size = 0
 systray_icon_asb = 95 0 0
 
 # Clock
-time1_format = %l:%M %P
-time1_font = DejaVu Sans Semi-Condensed 7
-time2_format = %b %e, %Y
-time2_font = DejaVu Sans 6
-clock_font_color = #FFFFFF 60
-clock_tooltip = %A
-clock_padding = 1 0
+time1_format = %H:%M
+time1_font = DejaVu Sans Mono 8
+time2_format = %a %d %b
+time2_font = DejaVu Sans Mono 7
+clock_font_color = #FFFFFF 100
+clock_padding = 5 1
+clock_background_id = 2
 
 # Tooltips
 tooltip = 0
