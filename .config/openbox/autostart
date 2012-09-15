@@ -16,4 +16,3 @@ pnmixer &
 mpd &
 urxvt &
 
-gpg-agent --daemon &

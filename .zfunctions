@@ -105,24 +105,39 @@ rtorrent_resume() {
 }
 
 
-alias sizeof='du -sh'
-alias df='df -h -T'
 alias gst='git status --short --untracked-files'
-alias ls="ls --group-directories-first -lha -A --color=auto"
-alias md='mkdir -p'
-alias rd=rmdir
-
 alias pacman='sudo pacman-color'
 alias backup='~/rsync.sh'
-alias nightmode='xflux -z 11577'
-alias get='axel'
-
 alias ccopt='gcc -c -Q -O3 --help=optimizers | grep enabled'
 alias findcpu='echo "" | gcc -march=native -v -E - 2>&1 | grep cc1'
 alias ns="netstat -alnp --protocol=inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | tail"
 alias nsw="sudo watch -n 3 -d -t netstat -vantp"    # watch incoming connections
 alias openports="netstat --all --numeric --programs --inet"
-
 alias chfile='chmod 644'
 alias chdir='chmod 755'
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
+alias ls='ls -Alh --group-directories-first --color=auto'
+alias df='df -h'
+alias du='du -h'
+alias free='free -m'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+alias ln='ln -iv'
+alias install='install -v'
+alias mount='mount -v'
+alias umount='umount -v'
+alias chown='chown -c --preserve-root'
+alias chmod='chmod -c --preserve-root'
+alias chgrp='chgrp -c --preserve-root'
+alias rmdir='rmdir -v'
+alias mkdir='mkdir -vp'
+alias p=pacman
+alias ll='ls -l'
+alias rr='rm -r'
+alias dirs='dirs -p'
+alias ncmpc=ncmpcpp
+alias gparted='sudo -b gparted &>/dev/null'
+alias zenmap='sudo -b zenmap &>/dev/null'
+[[ -n $DISPLAY ]] ||
+    alias mplayer='mplayer -vo fbdev'
