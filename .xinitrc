@@ -8,6 +8,7 @@ umask 077
 
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
 export PATH="$HOME/bin:${PATH}"
+export MALLOC_CHECK_=1
 
 xset +dpms
 xset dpms 0 0 300
@@ -30,8 +31,10 @@ xinput set-int-prop "Synaptics Mouse" "Two-Finger Scrolling" 4 1
 xinput set-int-prop "Synaptics Mouse" "Synaptics Two-Finger Scrolling" 4 1 1
 xinput set-int-prop "Synaptics Mouse" "Synaptics Jumpy Cursor Threshold" 32 150
 
+urxvtd -q -o -f
+
 launch() {
-    exec dbus-launch $*
+    exec dbus-launch --binary-syntax --close-stderr --exit-with-session $*
 }
 
 case ${2:-openbox} in

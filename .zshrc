@@ -2,9 +2,9 @@
 have() { which $1 &>/dev/null || return 1 }
 
 # modules
-autoload -U compinit promptinit
-compinit
-promptinit
+autoload -U  compinit   && compinit
+autoload -U  promptinit && promptinit
+autoload -U  colors     && colors
 zmodload zsh/complist
 
 # smart urls
@@ -88,7 +88,7 @@ eval $(dircolors -b ~/.dir_colors)
 export \
 BROWSER="chromium" \
 EDITOR='nano' \
-VISUAL='nano' \
+VISUAL=$EDITOR \
 PAGER='less' \
 LESSHISTFILE=- \
 LESS=-R        \
@@ -114,13 +114,13 @@ MAKEFLAGS="-j2"
 
 
 cat <<"EOF"
-       [1;34m/[1;34m#[1;34m\[0;34m                      _     _ _
-      [1;34m/[1;34m###[1;34m\[0;34m       __ _ _ __ ___| |__ | (_)_ __  _   ___  __
-     [1;34m/[1;34m#####[1;34m\[0;34m     / _` | '__/ __| '_ \| | | '_ \| | | \ \/ /
-    [1;34m/##[0;34m,-,##[0;34m\[0;34m   | (_| | | | (__| | | | | | | | | |_| |>  <
-   [0;34m/[0;34m##(   )##[0;34m\[0;34m   \__,_|_|  \___|_| |_|_|_|_| |_|\__,_/_/\_\
-  [0;34m/[0;34m#.--   --.#[0;34m\[0;38m   A simple, elegant GNU/Linux distribution.
- [0;34m/[0;34m`           `[0;34m\[0m
+        [1;34m/[1;34m#[1;34m\[0;34m                      _     _ _
+       [1;34m/[1;34m###[1;34m\[0;34m       __ _ _ __ ___| |__ | (_)_ __  _   ___  __
+      [1;34m/[1;34m#####[1;34m\[0;34m     / _` | '__/ __| '_ \| | | '_ \| | | \ \/ /
+     [1;34m/##[0;34m,-,##[0;34m\[0;34m   | (_| | | | (__| | | | | | | | | |_| |>  <
+    [0;34m/[0;34m##(   )##[0;34m\[0;34m   \__,_|_|  \___|_| |_|_|_|_| |_|\__,_/_/\_\
+   [0;34m/[0;34m#.--   --.#[0;34m\[0;38m   A simple, elegant GNU/Linux distribution.
+  [0;34m/[0;34m`           `[0;34m\[0m
 EOF
 
 foreach f in ~/.z{bindkeys,functions,style,prompt,private}; {

@@ -18,11 +18,12 @@ extract() {
       *.xz     ) unxz        "$1" ;;
       *.lzma   ) unlzma      "$1" ;;
       *.Z      ) uncompress  "$1" ;;
-      *.zip    ) local extract_dir="$(echo $(basename "$1") | sed "s/\.${1##*.}//g")"
+      *.zip    ) local extract_dir=$(echo $(basename "$1") | sed "s/\.${1##*.}//g")
                  unzip       "$1" -d $extract_dir ;;
       *.rar    ) unrar e -ad "$1" ;;
       *.7z     ) 7za x       "$1" ;;
       *.Z      ) uncompress  "$1" ;;
+      *.exe    ) cabextract  "$1" ;;
       *) echo "extract: '$1' cannot be extracted" 1>&2
     esac
     done
@@ -104,7 +105,51 @@ rtorrent_resume() {
     dtach -a ~/.rtorrent/rtorrent.dtach
 }
 
+ddprogress() {
+    local pid= t=0
+    dd "$@" &
+    pid=$!
 
+    while kill -0 "$pid"; do
+        sleep 5s
+        (( t += 5 ))
+        (( ! t % 60 )) &&
+            kill -USR1 "$pid" || break
+    done
+}
+
+deps() {
+  local bin dir
+  if [[ -f "$1" ]]; then
+    bin=$1
+  elif bin=$(type -P $1); then
+    :
+  else
+    # maybe its a lib?
+    for dir in /lib /usr/lib; do
+      if [[ -f $dir/$1 ]]; then
+        bin=$dir/$1
+        break
+      fi
+    done
+  fi
+
+  if [ $bin && $1 != $bin ]; then
+    printf '%s => %s\n\n' "$1" "$bin"
+  fi
+
+  [[ -z $bin ]] && { echo "error: binary not found: $1"; return 1; }
+  objdump -p "$bin" | awk '/NEEDED/ { print $2 }'
+}
+
+depscan() {
+  [[ -z $1 ]] && { echo "usage: depscan <package>"; return; }
+  while read elfobj; do
+    objdump -p "$elfobj" | awk '/NEEDED/ { print $2 }'
+  done < <(file $(pacman -Qlq $1) | sed -n '/ELF/s/^\(.*\):.*/\1/p') | nl
+}
+
+alias sudo='sudo '
 alias gst='git status --short --untracked-files'
 alias pacman='sudo pacman-color'
 alias backup='~/rsync.sh'

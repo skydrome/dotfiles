@@ -2,16 +2,15 @@ Xft*dpi:                    97
 Xft*antialias:              true
 Xft*rgba:                   rgb
 Xft*hinting:                true
-Xft*hintstyle:              hintmedium
+Xft*hintstyle:              hintfull
 Xft*lcdfilter:              lcddefault
 
-URxvt*termName:             rxvt-unicode-256color
 URxvt*iconFile: .icons/mistEEk/scalable/apps/24/terminal.svg
-URxvt*font:     xft:DejaVu Sans Mono:pixelsize=11
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11
-URxvt*perl-ext-common: default,clipboard,matcher,tabbed
-URxvt*urlLauncher:  /usr/bin/chromium
-URxvt*matcher.button:   1
+URxvt.font:     xft:DejaVuSansMono:pixelsize=11,xft:Symbola:pixelsize=10
+URxvt.boldFont: xft:DejaVuSansMono:pixelsize=11:bold,xft:Symbola:pixelsize=6:bold
+URxvt*perl-ext-common:      default,clipboard,matcher,tabbed
+URxvt*urlLauncher:          chromium
+URxvt*matcher.button:       1
 
 URxvt*buffered:             true
 URxvt*scrollBar:            false
@@ -23,10 +22,11 @@ URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
 URxvt*saveLines:            5000
 URxvt*urgentOnBell:         true
-
+URxvt.underlinecolor: #999999
+URxvt.cutchars: "()*,<>[]{}|'"
 URxvt*depth:                32
-URxvt*geometry:             86x26
-URxvt*internalBorder:       3
+URxvt*geometry:             90x30
+URxvt*internalBorder:       0
 URxvt*lineSpace:            0
 
 ! Tabs
@@ -54,23 +54,23 @@ URxvt*fadeColor:            #000000
 *color0:  #251f1f
 *color8:  #5e5e5e
 !red
-*color1:  #eb4509
+*color1:  #ff8d8d
 *color9:  #eb4509
 !green
-*color2:  #94e76b
+*color2:  #93d44f
 *color10: #95e76b
 !yellow
-*color3:  #ffac18
+*color3:  #eab93d
 *color11: #ffac18
 !blue
-*color4:  #46aede
+*color4:  #3465a4
 *color12: #46aede
 !magenta
-*color5:  #e32c57
+*color5:  #f57900
 *color13: #e32c57
 !cyan
-*color6:  #06989a
+*color6:  #46a4ff
 *color14: #06989a
 !white
-*color7:  #efefef
+*color7:  #cccccc
 *color15: #efefef
