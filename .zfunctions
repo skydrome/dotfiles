@@ -184,5 +184,3 @@ alias dirs='dirs -p'
 alias ncmpc=ncmpcpp
 alias gparted='sudo -b gparted &>/dev/null'
 alias zenmap='sudo -b zenmap &>/dev/null'
-[[ -n $DISPLAY ]] ||
-    alias mplayer='mplayer -vo fbdev'

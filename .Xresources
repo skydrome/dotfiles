@@ -51,10 +51,10 @@ URxvt*fadeColor:            #000000
 *background: [90]#111111
 
 !black
-*color0:  #251f1f
-*color8:  #5e5e5e
+*color0:  #1E1919
+*color8:  #4C4C4C
 !red
-*color1:  #ff8d8d
+*color1:  #f57900
 *color9:  #eb4509
 !green
 *color2:  #93d44f
@@ -64,13 +64,13 @@ URxvt*fadeColor:            #000000
 *color11: #ffac18
 !blue
 *color4:  #3465a4
-*color12: #46aede
+*color12: #46a4ff
 !magenta
-*color5:  #f57900
+*color5:  #ff8d8d
 *color13: #e32c57
 !cyan
-*color6:  #46a4ff
-*color14: #06989a
+*color6:  #06989a
+*color14: #38ADAE
 !white
 *color7:  #cccccc
 *color15: #efefef
