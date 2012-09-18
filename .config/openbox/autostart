@@ -4,15 +4,12 @@
 # to run user-specific things.
 #
 
+xflux -z 11577 &
 sudo power &
 compton &
-feh --bg-scale "$HOME/Pictures/arch.png"
-xflux -z 11577 &
-
+feh --bg-max --no-fehbg $HOME/Pictures/arch1.png &
 tint2 &
 dmenu -i -l 2 &
 pnmixer &
-
 mpd &
 urxvtc -name htop -geometry 130x25 -e htop &
-

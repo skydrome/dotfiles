@@ -25,7 +25,7 @@ URxvt*urgentOnBell:         true
 URxvt.underlinecolor: #999999
 URxvt.cutchars: "()*,<>[]{}|'"
 URxvt*depth:                32
-URxvt*geometry:             90x30
+URxvt*geometry:             94x28
 URxvt*internalBorder:       0
 URxvt*lineSpace:            0
 

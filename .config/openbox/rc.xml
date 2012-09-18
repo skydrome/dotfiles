@@ -56,7 +56,7 @@
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>DejaVu Sans Mono</name>
-      <size>11</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
