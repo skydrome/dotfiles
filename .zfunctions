@@ -149,13 +149,19 @@ depscan() {
   done < <(file $(pacman -Qlq $1) | sed -n '/ELF/s/^\(.*\):.*/\1/p') | nl
 }
 
+mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
+mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
+
 alias sudo='sudo '
 alias gst='git status --short --untracked-files'
 alias pacman='sudo pacman-color'
 alias backup='~/rsync.sh'
 alias ccopt='gcc -c -Q -O3 --help=optimizers | grep enabled'
 alias findcpu='echo "" | gcc -march=native -v -E - 2>&1 | grep cc1'
-alias ns="netstat -alnp --protocol=inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | tail"
+alias ns='netstat -alnp --protocol=inet'
+alias ports='netstat -nape --inet'
+alias ping='ping -c 4'
 alias nsw="sudo watch -n 3 -d -t netstat -vantp"    # watch incoming connections
 alias openports="netstat --all --numeric --programs --inet"
 alias chfile='chmod 644'
@@ -169,6 +175,10 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -Iv'
 alias ln='ln -iv'
+alias .='cd ../'
+alias ..='cd ../../'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
 alias install='install -v'
 alias mount='mount -v'
 alias umount='umount -v'
@@ -177,6 +187,7 @@ alias chmod='chmod -c --preserve-root'
 alias chgrp='chgrp -c --preserve-root'
 alias rmdir='rmdir -v'
 alias mkdir='mkdir -vp'
+alias diff='colordiff -Nuar'
 alias p=pacman
 alias ll='ls -l'
 alias rr='rm -r'
@@ -184,3 +195,14 @@ alias dirs='dirs -p'
 alias ncmpc=ncmpcpp
 alias gparted='sudo -b gparted &>/dev/null'
 alias zenmap='sudo -b zenmap &>/dev/null'
+alias mountiso='sudo mount -t iso9660 -o loop'
+alias blank="sleep 1 && xset dpms force off"
+alias lesslast="less !:*"
+
+alias installedby='sudo pacman -Ql'
+alias whatfrom='sudo pacman -Qo'
+alias showorphan='sudo pacman -Qdt'
+alias removeorphan='sudo pacman -Rsnc $(pacman -Qdqt)'
+alias giveswhat='sudo pkgfile --list'
+
+alias reload='source ~/.zshrc'

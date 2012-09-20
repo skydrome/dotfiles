@@ -4,12 +4,13 @@
 # to run user-specific things.
 #
 
-xflux -z 11577 &
 sudo power &
-compton &
+compton -cC -t-3 -l-5 -r5 -D5 -fF -b &
 feh --bg-max --no-fehbg $HOME/Pictures/arch1.png &
 tint2 &
+conky -d &
 dmenu -i -l 2 &
 pnmixer &
 mpd &
-urxvtc -name htop -geometry 130x25 -e htop &
+xflux -z 11577 &
+urxvtc &

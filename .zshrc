@@ -79,6 +79,8 @@ export \
 BROWSER="chromium"  \
 EDITOR='nano'       \
 VISUAL=$EDITOR      \
+LANG="en_US.UTF-8"  \
+LC_CTYPE="en_US.UTF-8" \
 PAGER='less'        \
 LESSHISTFILE=-      \
 LESS=-R             \
@@ -98,6 +100,7 @@ CC=clang    \
 CXX=clang++ \
 CFLAGS="-march=native -O3 -pipe -fstack-protector -D_FORTIFY_SOURCE=2" \
 #CFLAGS="CFLAGS -mfpmath=sse -fuse-linker-plugin" \
+CFLAGS+="-fPIE -pie -Wformat-security" \
 CXXFLAGS="-std=gnu++11 $CFLAGS" \
 LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro" \
 MAKEFLAGS="-j2"
