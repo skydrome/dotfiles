@@ -149,6 +149,10 @@ depscan() {
   done < <(file $(pacman -Qlq $1) | sed -n '/ELF/s/^\(.*\):.*/\1/p') | nl
 }
 
+scrot() {
+    ( cd ~/Pictures && /usr/bin/scrot $*; ) 
+}
+
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
@@ -204,5 +208,5 @@ alias whatfrom='sudo pacman -Qo'
 alias showorphan='sudo pacman -Qdt'
 alias removeorphan='sudo pacman -Rsnc $(pacman -Qdqt)'
 alias giveswhat='sudo pkgfile --list'
-
+alias e='subl'
 alias reload='source ~/.zshrc'
