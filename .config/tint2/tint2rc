@@ -6,20 +6,20 @@
 # ID 1
 rounded = 6
 border_width = 0
-background_color = #1F1F1F 64
+background_color = #1F1F1F 63
 border_color = #656565 100
 
 # ID 2
 rounded = 4
 border_width = 1
-background_color = #111111 94
-border_color = #E2E2E2 30
+background_color = #111111 93
+border_color = #E2E2E2 29
 
 # ID 3
 rounded = 8
 border_width = 1
-background_color = #171717 77
-border_color = #464646 44
+background_color = #171717 76
+border_color = #464646 43
 
 # ID 4
 rounded = 5
@@ -56,7 +56,7 @@ urgent_nb_of_blink = 7
 task_icon = 1
 task_text = 1
 task_centered = 1
-task_maximum_size = 150 32
+task_maximum_size = 125 30
 task_padding = 7 4
 task_background_id = 3
 task_active_background_id = 2

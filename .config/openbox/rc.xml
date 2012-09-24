@@ -250,10 +250,10 @@
     </keybind>
     <keybind key="A-F3">
       <action name="Execute">
-        <command>~/.config/dmenu/dmenu-bind.sh</command>
+        <command>~/bin/urxvtcd</command>
         <startupnotify>
           <enabled>yes</enabled>
-          <name>dmenu</name>
+          <name>urxvt</name>
         </startupnotify>
       </action>
     </keybind>

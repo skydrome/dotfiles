@@ -1,3 +1,14 @@
+clear
+cat <<"EOF"
+        [1;34m/[1;34m#[1;34m\[1;34m                      _    [0;34m _ _
+       [1;34m/[1;34m###[1;34m\[1;34m       __ _ _ __ ___| |__ [0;34m| (_)_ __  _   ___  __
+      [1;34m/[1;34m#####[1;34m\[1;34m     / _` | '__/ __| '_ \[0;34m| | | '_ \| | | \ \/ /
+     [1;34m/##[0;34m,-,##[0;34m\[1;34m   | (_| | | | (__| | | |[0;34m | | | | | |_| |>  <
+    [0;34m/[0;34m##(   )##[0;34m\[1;34m   \__,_|_|  \___|_| |_|[0;34m_|_|_| |_|\__,_/_/\_\
+   [0;34m/[0;34m#.--   --.#[0;34m\[0;38m   A simple, elegant GNU/Linux distribution.
+  [0;34m/[0;34m`           `[0;34m\[0m
+EOF
+
 # modules
 autoload -U  compinit   && compinit
 autoload -U  promptinit && promptinit
@@ -94,28 +105,17 @@ LESS_TERMCAP_so=$'\E[00;47;30m' \
 LESS_TERMCAP_ue=$'\E[0m'        \
 LESS_TERMCAP_us=$'\E[01;32m'    \
 
-#export CC=gcc CXX=g++
-export \
-CC=clang    \
-CXX=clang++ \
-CFLAGS="-march=native -O3 -pipe -fstack-protector -D_FORTIFY_SOURCE=2" \
-#CFLAGS="CFLAGS -mfpmath=sse -fuse-linker-plugin" \
-CFLAGS+="-fPIE -pie -Wformat-security" \
-CXXFLAGS="-std=gnu++11 $CFLAGS" \
-LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro" \
-MAKEFLAGS="-j2"
-
-
-cat <<"EOF"
-        [1;34m/[1;34m#[1;34m\[1;34m                      _    [0;34m _ _
-       [1;34m/[1;34m###[1;34m\[1;34m       __ _ _ __ ___| |__ [0;34m| (_)_ __  _   ___  __
-      [1;34m/[1;34m#####[1;34m\[1;34m     / _` | '__/ __| '_ \[0;34m| | | '_ \| | | \ \/ /
-     [1;34m/##[0;34m,-,##[0;34m\[1;34m   | (_| | | | (__| | | |[0;34m | | | | | |_| |>  <
-    [0;34m/[0;34m##(   )##[0;34m\[1;34m   \__,_|_|  \___|_| |_|[0;34m_|_|_| |_|\__,_/_/\_\
-   [0;34m/[0;34m#.--   --.#[0;34m\[0;38m   A simple, elegant GNU/Linux distribution.
-  [0;34m/[0;34m`           `[0;34m\[0m
-EOF
-
-foreach f in ~/.z{bindkeys,functions,style,prompt,private}; {
+foreach f in ~/.z{prompt,style,bindkeys,functions,private}; {
     source $f
 }
+
+#export CC=gcc CXX=g++
+export CC=clang CXX=clang++
+
+CFLAGS="-march=native -O3 -pipe -fstack-protector -D_FORTIFY_SOURCE=2"
+CFLAGS+=" -mfpmath=sse -fPIE -fuse-linker-plugin"
+CFLAGS+=" -Wformat-security -fPIE"
+
+export CFLAGS CXXFLAGS="-std=gnu++11 $CFLAGS"
+export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro" # -pie"
+export MAKEFLAGS="-j2"
