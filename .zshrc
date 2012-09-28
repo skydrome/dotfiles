@@ -109,13 +109,34 @@ foreach f in ~/.z{prompt,style,bindkeys,functions,private}; {
     source $f
 }
 
-#export CC=gcc CXX=g++
-export CC=clang CXX=clang++
+export CC=gcc
+export CXX=g++
 
-CFLAGS="-march=native -O3 -pipe -fstack-protector -D_FORTIFY_SOURCE=2"
-CFLAGS+=" -mfpmath=sse -fPIE -fuse-linker-plugin"
-CFLAGS+=" -Wformat-security -fPIE"
+COREFLAGS="-pipe                 \
+           -frename-registers    \
+           -ftree-vectorize      \
+           -fweb                 \
+           -fomit-frame-pointer  \
+           -freorder-blocks      \
+           -fno-ident            \
+           -fmerge-all-constants \
+           -ftree-loop-im        \
+           -fgcse-after-reload   \
+           -mfpmath=sse          \
+           -msahf"
 
-export CFLAGS CXXFLAGS="-std=gnu++11 $CFLAGS"
-export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro" # -pie"
-export MAKEFLAGS="-j2"
+CPUFLAGS=" -march=native \
+           -msse         \
+           -msse2        \
+           -msse3        \
+           -mmmx"
+
+CFLAGS="-O3 ${CPUFLAGS} ${COREFLAGS}"
+CFLAGS+=" -flto -fuse-linker-plugin"
+#CFLAGS+=" -fstack-protector -D_FORTIFY_SOURCE=2 --param=ssp-buffer-size=4"
+
+LDFLAGS="-Wl,-O1,--sort-common,--as-needed,--hash-style=gnu,-z,relro"
+LDFLAGS+=" -flto"
+
+export CXXFLAGS="${CFLAGS}" CFLAGS LDFLAGS
+export MAKEFLAGS="-j2 -s"

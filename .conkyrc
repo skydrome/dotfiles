@@ -1,6 +1,5 @@
 use_xft yes
-xftfont 123:size=8
-xftalpha 0.1
+xftfont Fixed:size=8
 update_interval 2
 total_run_times 0
 own_window yes
@@ -8,8 +7,8 @@ own_window_type desktop
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-#min_width 100 5
-maximum_width 1024
+min_width 1024
+#maximum_width 1024
 draw_shades no
 draw_outline no
 draw_borders no
@@ -26,8 +25,10 @@ cpu_avg_samples 2
 net_avg_samples 1
 override_utf8_locale yes
 use_spacer none
+short_units yes
 
 TEXT
 #${offset 15}${diskiograph sda 10,100 1C96B5 C29B00 -t}${offset 280}${cpugraph 0 10,100 1C96B5 FF2450 -t}${offset 10}${memgraph 10,100 1C96B5 27DD4B -t}${offset 220}${downspeedgraph wlan0 10,80 1C96B5 91DBEE -t}${offset 10}${upspeedgraph wlan0 10,80 1C96B5 775CE6 -t}
 ${offset 60}${font DejaVu Sans Mono:pixelsize=10}${offset 10}${color 3DC0E1}KERNEL $color${kernel}+${ioscheduler sda}${offset 15}${color 3DC0E1}LOAD $color${loadavg}${offset 15}${color 3DC0E1}PROCS $color${processes}${offset 15}${color 3DC0E1}CPU $color${cpu cpu0}%${offset 15}${color 3DC0E1}RAM $color$mem/ $memmax${offset 15}${color 3DC0E1}HDD $color${fs_free /} / ${fs_size /}${offset 15}${color 3DC0E1}UPTIME $color${uptime}${offset 15}${color 3DC0E1}TEMP $color${hwmon temp 1}°C
 ${offset 60}${voffset 1}${offset 170}${font DejaVu Sans Mono:pixelsize=10}${color 3DC0E1}BATTERY $color${battery_percent BAT1}%${offset 15}${color 3DC0E1}WLAN $color${wireless_link_qual_perc wlan0}%${offset 15}${color 3DC0E1}IP $color${addrs wlan0}${offset 12}${color 3DC0E1}TOTAL $color↓${totaldown wlan0} ${totalup wlan0}↑${offset 12}${color 3DC0E1}IN/OUT $color↓${downspeed wlan0} ${upspeed wlan0}↑
+#${alignr}${voffset 1}${rss archlinux.org/feeds/news 60 item_titles 1}

@@ -50,8 +50,8 @@
         <item label="Chromium">
             <action name="Execute"><command>chromium</command></action>
         </item>
-        <item label="Medit">
-            <action name="Execute"><command>medit</command></action>
+        <item label="Filezilla">
+            <action name="Execute"><command>filezilla</command></action>
         </item>
         <item label="Thunderbird">
             <action name="Execute"><command>thunderbird-nightly</command></action>
@@ -60,7 +60,7 @@
             <action name="Execute"><command>spacefm</command></action>
         </item>
         <item label="Terminal">
-            <action name="Execute"><command>urxvtc</command></action>
+            <action name="Execute"><command>urxvtcd</command></action>
         </item>
 </menu>
 

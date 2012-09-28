@@ -10,11 +10,6 @@ export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
 export PATH="$HOME/bin:${PATH}"
 export MALLOC_CHECK_=1
 
-xset +dpms
-xset dpms 0 0 300
-xset +fp /usr/share/fonts/local
-xset fp rehash &
-
 xrdb -merge ~/.Xresources &
 
 setkeycodes e025 130

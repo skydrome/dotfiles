@@ -205,7 +205,6 @@ alias lesslast="less !:*"
 
 alias installedby='sudo pacman -Ql'
 alias whatfrom='sudo pacman -Qo'
-alias showorphan='sudo pacman -Qdt'
 alias removeorphan='sudo pacman -Rsnc $(pacman -Qdqt)'
 alias giveswhat='sudo pkgfile --list'
 alias e='subl'
