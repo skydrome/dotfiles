@@ -564,10 +564,10 @@ logfile privoxy.log
 #        debug       128 # debug redirects
 #        debug       256 # debug GIF de-animation
 #        debug       512 # Common Log Format
-#        debug      1024 # Log the destination for requests Privoxy didn't let through, and the reason why.
+        debug      1024 # Log the destination for requests Privoxy didn't let through, and the reason why.
 #        debug      2048 # CGI user interface
 #        debug      4096 # Startup banner and warnings.
-#        debug      8192 # Non-fatal errors
+        debug      8192 # Non-fatal errors
 #        debug     32768 # log all data read from the network
 #
 #
@@ -603,7 +603,7 @@ logfile privoxy.log
 #debug   1024 # Log the destination for requests Privoxy didn't let through, and the reason why.
 #debug   4096 # Startup banner and warnings
 #debug   8192 # Non-fatal errors
-#
+#debug 32
 #
 #  3.2. single-threaded
 #  =====================
@@ -1289,12 +1289,13 @@ buffer-limit 4096
 #      To chain Privoxy and Tor, both running on the same system,
 #      you would use something like:
 #
-forward-socks4a      .onion      127.0.0.1:9050 .
+#forward-socks5      /           127.0.0.1:9050 .
+forward-socks5      .onion      127.0.0.1:9050 .
 forward             .i2p        127.0.0.1:4444
 
-forward             .nfl.com    .
-forward             nfl.demdex.com    .
-forward             b.scorecardresearch.com    .
+#forward             .nfl.com    .
+#forward             nfl.demdex.com    .
+#forward             b.scorecardresearch.com    .
 #
 #
 #      The public Tor network can't be used to reach your local network,

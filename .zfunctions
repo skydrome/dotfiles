@@ -202,7 +202,7 @@ alias zenmap='sudo -b zenmap &>/dev/null'
 alias mountiso='sudo mount -t iso9660 -o loop'
 alias blank="xset dpms force off"
 alias lesslast="less !:*"
-
+alias pstree="pstree-color"
 alias installedby='sudo pacman -Ql'
 alias whatfrom='sudo pacman -Qo'
 alias removeorphan='sudo pacman -Rsnc $(pacman -Qdqt)'
