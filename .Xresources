@@ -1,4 +1,4 @@
-Xft*dpi:                    97
+Xft*dpi:                    96
 Xft*antialias:              true
 Xft*rgba:                   rgb
 Xft*hinting:                true
@@ -26,7 +26,7 @@ URxvt.underlinecolor: #999999
 URxvt.cutchars: "()*,<>[]{}|'"
 URxvt*depth:                32
 URxvt*geometry:             94x28
-URxvt*internalBorder:       0
+URxvt*internalBorder:       4
 URxvt*lineSpace:            0
 
 ! Tabs
