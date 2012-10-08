@@ -8,17 +8,18 @@ PAGER='less'        \
 LESSHISTFILE=-      \
 LESS=-R             \
 GREP_COLOR="4;1;31" \
-GREP_OPTIONS='--color=auto'     \
 LESS_TERMCAP_mb=$'\E[01;31m'    \
 LESS_TERMCAP_md=$'\E[01;31m'    \
 LESS_TERMCAP_me=$'\E[0m'        \
 LESS_TERMCAP_se=$'\E[0m'        \
-LESS_TERMCAP_so=$'\E[00;47;30m' \
+LESS_TERMCAP_so=$'\E[00;44;33m' \
 LESS_TERMCAP_ue=$'\E[0m'        \
 LESS_TERMCAP_us=$'\E[01;32m'    \
 MALLOC_CHECK_=1 \
 PATH="$HOME/bin:/usr/lib/colorgcc/bin:/bin:$PATH"
 
+#CC=$HOME/bin/gcc
+#CXX=$HOME/bin/g++
 CC=gcc
 CXX=g++
 

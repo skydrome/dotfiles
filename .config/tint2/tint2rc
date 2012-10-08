@@ -16,7 +16,7 @@ background_color = #111111 93
 border_color = #E2E2E2 29
 
 # ID 3
-rounded = 8
+rounded = 7
 border_width = 1
 background_color = #171717 76
 border_color = #464646 43

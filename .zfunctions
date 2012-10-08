@@ -1,15 +1,21 @@
 extract() {
     local extract_dir="$( echo "$file_name" | sed "s/\.${1##*.}//g" )"
     for i in "$@" ;do
+        if [[ ! -r $i ]]; then
+            echo "$0: file is unreadable: \`$i'" >&2
+            continue
+        fi
     case "$1" in
-      *.tar.gz|*.tgz        ) tar xzf "$1" ;;
-      *.tar.bz2|*.tbz|*.tbz2) tar xjf "$1" ;;
-      *.tar.xz|*.txz        ) tar --xz --help &> /dev/null &&
-                              tar --xz -xf "$1" ||
-                              xzcat "$1" | tar xf - ;;
-      *.tar.zma|*.tlz       ) tar --lzma --help &> /dev/null &&
-                              tar --lzma -xf "$1" ||
-                              lzcat "$1" | tar xf - ;;
+      *.t@(gz|lz|xz|b@(2|z?(2))|a@(z|r?(.@(Z|bz?(2)|gz|lzma|xz)))))
+                              bsdtar xvf "$1" ;;
+      #*.tar.gz|*.tgz        ) tar xzf "$1" ;;
+      #*.tar.bz2|*.tbz|*.tbz2) tar xjf "$1" ;;
+      #*.tar.xz|*.txz        ) tar --xz --help &> /dev/null &&
+      #                        tar --xz -xf "$1" ||
+      #                        xzcat "$1" | tar xf - ;;
+      #*.tar.zma|*.tlz       ) tar --lzma --help &> /dev/null &&
+      #                        tar --lzma -xf "$1" ||
+      #                        lzcat "$1" | tar xf - ;;
       *.tar.lrz) lrzuntar    "$1" ;;
       *.lrz    ) lrunzip     "$1" ;;
       *.tar    ) tar xf      "$1" ;;
@@ -29,7 +35,11 @@ extract() {
     done
 }
 
-compress() { # compress a file or folder
+compress() { # compress a file or folder, assume we want lrzip since its the best
+    if [[ -x /usr/bin/lrzip && -r "$1" ]]; then
+        [[ -d "$1" ]] && lrztar "$1" ||
+        [[ -f "$1" ]] && lrzip "$1"
+    else
     case "$1" in
         tar.bz2|.tar.bz2) tar cvjf "${2%%/}.tar.bz2" "${2%%/}/"  ;;
         tbz2|.tbz2)       tar cvjf "${2%%/}.tbz2" "${2%%/}/"     ;;
@@ -53,6 +63,7 @@ compress() { # compress a file or folder
             echo "tar.bz2, tar.gz, tar.gz, tar, bz2, gz, tbz2, tbz,"
             echo "tgz, lzo, rar, zip, 7z, xz and lzma."
     esac
+    fi
 }
 
 list() { # list content of archive but don't unpack
@@ -150,35 +161,64 @@ depscan() {
 }
 
 scrot() {
-    ( cd ~/Pictures && /usr/bin/scrot $*; ) 
+    ( cd ~/Pictures && /usr/bin/scrot $*; )
 }
 
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
+##[packaging]
+alias pacman='sudo pacman-color'
+alias pac_upgrade="yaourt -Syua"
+alias pac_info="pacman -Si"
+alias pac_list_local="pacman -Qqm"
+alias pac_clean_cache="pacman -Sc"
+alias pac_make="makepkg -fci"
+alias pac_files_installed_by='sudo pacman -Ql'
+alias pac_what_owns='sudo pacman -Qo'
+alias pac_remove_orphans='sudo pacman -Rsnc $(pacman -Qdqt)'
+alias pac_what_gives='sudo pkgfile --list'
+alias pac_what_has='sudo pkgfile --search'
+
+##[directories]
+alias ls='ls -Alh --group-directories-first --color=auto'
+alias ll='ls -l'
+alias lr='ls -R'                    # recursive ls
+alias lx='ll -BX'                   # sort by extension
+alias lz='ll -rS'                   # sort by size
+alias lt='ll -rt'                   # sort by date
+alias lm='la | more'
+alias grep='grep -n --color=auto'
+alias df='dfc'
+alias du='du -h'
+
+##[safety]
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+alias rr='rm -r'
+alias ln='ln -iv'
+alias chown='chown -c --preserve-root'
+alias chmod='chmod -c --preserve-root'
+alias chgrp='chgrp -c --preserve-root'
+alias mkdir='mkdir -vp'
+
+alias date='cal -3; date "+%A, %B %d, %Y"'
 alias sudo='sudo '
 alias gst='git status --short --untracked-files'
-alias pacman='sudo pacman-color'
 alias backup='~/rsync.sh'
 alias ccopt='gcc -c -Q -O3 --help=optimizers | grep enabled'
 alias findcpu='echo "" | gcc -march=native -v -E - 2>&1 | grep cc1'
 alias ns='netstat -alnp --protocol=inet'
 alias ports='netstat -nape --inet'
-alias ping='ping -c 4'
+alias ping='ping -c 5'
 alias nsw="sudo watch -n 3 -d -t netstat -vantp"    # watch incoming connections
 alias openports="netstat --all --numeric --programs --inet"
 alias chfile='chmod 644'
 alias chdir='chmod 755'
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
-alias ls='ls -Alh --group-directories-first --color=auto'
-alias df='dfc'
-alias du='du -h'
-alias free='free -m'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -Iv'
-alias ln='ln -iv'
+
 alias .='cd ../'
 alias ..='cd ../../'
 alias ...='cd ../../../'
@@ -186,16 +226,7 @@ alias ....='cd ../../../../'
 alias install='install -v'
 alias mount='mount -v'
 alias umount='umount -v'
-alias chown='chown -c --preserve-root'
-alias chmod='chmod -c --preserve-root'
-alias chgrp='chgrp -c --preserve-root'
-alias rmdir='rmdir -v'
-alias mkdir='mkdir -vp'
 alias diff='colordiff -Nuar'
-alias p=pacman
-alias ll='ls -l'
-alias rr='rm -r'
-alias dirs='dirs -p'
 alias ncmpc=ncmpcpp
 alias gparted='sudo -b gparted &>/dev/null'
 alias zenmap='sudo -b zenmap &>/dev/null'
@@ -203,9 +234,5 @@ alias mountiso='sudo mount -t iso9660 -o loop'
 alias blank="xset dpms force off"
 alias lesslast="less !:*"
 alias pstree="pstree-color"
-alias installedby='sudo pacman -Ql'
-alias whatfrom='sudo pacman -Qo'
-alias removeorphan='sudo pacman -Rsnc $(pacman -Qdqt)'
-alias giveswhat='sudo pkgfile --list'
+alias systemd_plot="systemd-analyze plot |curl -sF file1=@- http://ompldr.org/upload |sed -n '/url/s/.*url=\([^]]*\)\].*/\1/p'"
 alias e='subl'
-alias reload='source ~/.zshrc'
