@@ -1,0 +1,70 @@
+background yes
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+temperature_unit celsius
+
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+
+gap_x 10
+gap_y -15
+minimum_size 190 450
+maximum_width 190
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+border_inner_margin 0
+border_outer_margin 0
+alignment tr
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+override_utf8_locale yes
+use_xft yes
+xftfont DejaVu Mono:size=8
+xftalpha 0.5
+uppercase no
+
+default_color FFFFFF
+color1 DDDDDD
+color2 AAAAAA
+color3 888888
+color4 3DC0E1
+
+lua_load ~/.conky/blue_rings.lua
+lua_draw_hook_post main
+
+TEXT
+${voffset 45}
+${goto 95}${color4}${font DejaVu Mono:size=22}${time %e}${color1}${offset -55}${font DejaVu Mono:size=10}${time %A}
+${goto 85}${color2}${voffset -1}${font DejaVu Mono:size=9}${time %b}${voffset -2} ${color3}${font DejaVu Mono:size=12}${time %Y}${font}
+
+${voffset 80}
+${goto 90}${font DejaVu Mono:size=8,weight:bold}${color}CPU
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color1}${top name 1}${alignr}${top cpu 1}%
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color2}${top name 2}${alignr}${top cpu 2}%
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top name 3}${alignr}${top cpu 3}%
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top name 4}${alignr}${top cpu 4}%
+${goto 90}${cpugraph 20,100 666666 3DC0E1}
+${goto 90}${voffset -10}${font DejaVu Mono:size=8,weight:normal}${color}${threads} process
+
+${voffset 0}
+${goto 90}${font DejaVu Mono:size=8,weight:bold}${color}MEM
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color1}${top_mem name 1}${alignr}${top_mem mem 1}%
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color2}${top_mem name 2}${alignr}${top_mem mem 2}%
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top_mem name 3}${alignr}${top_mem mem 3}%
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top_mem name 4}${alignr}${top_mem mem 4}%
+
+${voffset 0}
+${goto 90}${font DejaVu Mono:size=8,weight:bold}${color}DISKS
+
+${goto 90}${diskiograph 20,100 666666 3DC0E1}${voffset -30}
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color}
+${goto 90}${font DejaVu Mono:size=8,weight:normal}${color}
