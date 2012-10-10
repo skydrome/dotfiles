@@ -1,4 +1,3 @@
-URxvt*termName:screen-256color
 Xft*dpi:                    96
 Xft*antialias:              true
 Xft*rgba:                   rgb
@@ -6,7 +5,7 @@ Xft*hinting:                true
 Xft*hintstyle:              hintfull
 Xft*lcdfilter:              lcddefault
 
-URxvt*iconFile: .icons/mistEEk/scalable/apps/24/terminal.svg
+URxvt*iconFile: .icons/ACYL_Icon_Theme_0.9.4/scalable/apps/terminal.svg
 URxvt.font:     xft:DejaVuSansMono:pixelsize=11,xft:Symbola:pixelsize=10
 URxvt.boldFont: xft:DejaVuSansMono:pixelsize=11:bold,xft:Symbola:pixelsize=6:bold
 URxvt*perl-ext-common:      default,clipboard,matcher,tabbed

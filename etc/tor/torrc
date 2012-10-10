@@ -198,4 +198,3 @@ EntryNodes {us}
 StrictNodes 1
 AllowSingleHopCircuits 1
 AvoidDiskWrites 1
-

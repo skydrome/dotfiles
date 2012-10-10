@@ -52,7 +52,7 @@ ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color1}${top name 1}${alignr
 ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color2}${top name 2}${alignr}${top cpu 2}%
 ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top name 3}${alignr}${top cpu 3}%
 ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top name 4}${alignr}${top cpu 4}%
-${goto 90}${cpugraph 20,100 666666 3DC0E1}
+${goto 90}${cpugraph 20,100 111111 3DC0E1}
 ${goto 90}${voffset -10}${font DejaVu Mono:size=8,weight:normal}${color}${threads} process
 
 ${voffset 0}
@@ -65,6 +65,6 @@ ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color3}${top_mem name 4}${al
 ${voffset 0}
 ${goto 90}${font DejaVu Mono:size=8,weight:bold}${color}DISKS
 
-${goto 90}${diskiograph 20,100 666666 3DC0E1}${voffset -30}
+${goto 90}${diskiograph 20,100 111111 3DC0E1}${voffset -30}
 ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color}
 ${goto 90}${font DejaVu Mono:size=8,weight:normal}${color}

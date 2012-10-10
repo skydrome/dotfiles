@@ -170,7 +170,7 @@ mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
 ##[packaging]
 alias pacman='sudo pacman-color'
-alias pac_upgrade="yaourt -Syua"
+alias pac_upgrade="yaourt -Syua && sudo localepurge"
 alias pac_info="pacman -Si"
 alias pac_list_local="pacman -Qqm"
 alias pac_clean_cache="pacman -Sc"

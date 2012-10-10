@@ -97,7 +97,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
 {
-    name='fs_used_perc',           arg='/home/',                max_value=100,
+    name='fs_used_perc',           arg='/boot/',                max_value=100,
     x=85,                          y=380,
     graph_radius=18,
     graph_thickness=5,
@@ -113,7 +113,7 @@ gauge = {
     graduation_thickness=0,        graduation_mark_thickness=1,
     graduation_unit_angle=27,
     graduation_fg_colour=0xFFFFFF, graduation_fg_alpha=0.3,
-    caption='/home',
+    caption='/boot',
     caption_weight=1,              caption_size=8.0,
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
