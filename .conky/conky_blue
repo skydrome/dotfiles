@@ -1,5 +1,5 @@
 background yes
-update_interval 1
+update_interval 2
 
 cpu_avg_samples 2
 net_avg_samples 2

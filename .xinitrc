@@ -32,6 +32,5 @@ launch() {
 
 case ${2:-openbox} in
     openbox) launch openbox-session ;;
-    e17    ) launch enlightenment_start ;;
     *      ) launch $2 #echo >&2 "Unrecognized command $2"; exit 1 ;;
 esac

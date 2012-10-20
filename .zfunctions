@@ -102,9 +102,7 @@ sizeofdir() { # show size of all directories in current working directory
     rm /tmp/list
 }
 
-start()   { for arg in $* ;do sudo systemctl start   $arg ;done ;}
-stop()    { for arg in $* ;do sudo systemctl stop    $arg ;done ;}
-restart() { for arg in $* ;do sudo systemctl restart $arg ;done ;}
+count() { sort "$@" | uniq -c | sort -n -r | pager; }
 
 rtorrent_start() {
     dtach -n ~/.rtorrent/rtorrent.dtach rtorrent
@@ -215,10 +213,15 @@ alias ports='netstat -nape --inet'
 alias ping='ping -c 5'
 alias nsw="sudo watch -n 3 -d -t netstat -vantp"    # watch incoming connections
 alias openports="netstat --all --numeric --programs --inet"
+alias netcat='nc.openbsd'
 alias chfile='chmod 644'
 alias chdir='chmod 755'
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
-
+alias tracert='traceroute'
+alias hup='pkill -HUP -x'
+alias rot13='tr N-ZA-Mn-za-m A-Za-z'
+alias xf='ps xf -O ppid'
+alias xx='chmod a+x'
 alias .='cd ../'
 alias ..='cd ../../'
 alias ...='cd ../../../'
@@ -236,3 +239,12 @@ alias lesslast="less !:*"
 alias pstree="pstree-color"
 alias systemd_plot="systemd-analyze plot |curl -sF file1=@- http://ompldr.org/upload |sed -n '/url/s/.*url=\([^]]*\)\].*/\1/p'"
 alias e='subl'
+
+alias sdate='date "+%Y-%m-%d %H:%M"'
+alias ldate='date "+%A, %B %-d, %Y %H:%M"'
+alias mboxdate='date "+%a %b %_d %H:%M:%S %Y"'    # mbox
+alias mimedate='date "+%a, %d %b %Y %H:%M:%S %z"' # RFC 2822
+alias isodate='date "+%Y-%m-%dT%H:%M:%S%z"'   # ISO 8601
+alias webshare='python -m http.server 8080'
+alias axel='axel -a'
+alias eepget='sudo eepget'
