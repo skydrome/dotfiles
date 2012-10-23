@@ -180,66 +180,19 @@
         <menu>exit-menu</menu>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
-      <action name="DesktopRight">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Up">
-      <action name="DesktopUp">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="C-A-Down">
-      <action name="DesktopDown">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Left">
-      <action name="SendToDesktopLeft">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Right">
-      <action name="SendToDesktopRight">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Up">
-      <action name="SendToDesktopUp">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="S-A-Down">
-      <action name="SendToDesktopDown">
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-F1">
-      <action name="Desktop"/>
-    </keybind>
-    <keybind key="W-F2">
-      <action name="Desktop">
-        <desktop>2</desktop>
-      </action>
-    </keybind>
-    <keybind key="W-F3">
-      <action name="Desktop">
-        <desktop>3</desktop>
-      </action>
-    </keybind>
-    <keybind key="W-F4">
-      <action name="Desktop">
-        <desktop>4</desktop>
-      </action>
-    </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <keybind key="A-F4">
-      <action name="Close"/>
+    <keybind key="A-F1">
+      <action name="Execute">
+        <command>spacefm</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>spacefm</name>
+        </startupnotify>
+      </action>
     </keybind>
-    <keybind key="A-F2">
+    <keybind key="A-F3">
       <action name="Execute">
         <command>dmenu_run</command>
         <startupnotify>
@@ -248,7 +201,7 @@
         </startupnotify>
       </action>
     </keybind>
-    <keybind key="A-F3">
+    <keybind key="A-F2">
       <action name="Execute">
         <command>~/bin/urxvtcd</command>
         <startupnotify>
@@ -256,6 +209,9 @@
           <name>urxvt</name>
         </startupnotify>
       </action>
+    </keybind>
+    <keybind key="A-F4">
+      <action name="Close"/>
     </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
@@ -275,48 +231,6 @@
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
     </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-      </action>
-    </keybind>
-    <keybind key="W-f">
-      <action name="Execute">
-        <command>pcmanfm %U</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>File Manager</name>
-        </startupnotify>
-      </action>
-    </keybind>
-    <keybind key="W-w">
-      <action name="Execute">
-        <command>firefox-nightly %U</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>Firefox Web Browser</name>
-        </startupnotify>
-      </action>
-    </keybind>
-    <keybind key="W-g">
-      <action name="Execute">
-        <command>gucharmap</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>gucharmap</name>
-        </startupnotify>
-      </action>
-    </keybind>
-    <keybind key="W-t">
-      <action name="Execute">
-        <command>urxvt</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>urxvt</name>
-        </startupnotify>
-      </action>
-    </keybind>
     <keybind key="W-q">
       <action name="Execute">
         <command>xkill</command>
@@ -331,19 +245,10 @@
     </keybind>
     <keybind key="W-e">
       <action name="Execute">
-        <command>pluma</command>
+        <command>subl</command>
         <startupnotify>
           <enabled>yes</enabled>
-          <name>pluma</name>
-        </startupnotify>
-      </action>
-    </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>smplayer</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>SMPlayer</name>
+          <name>subl</name>
         </startupnotify>
       </action>
     </keybind>
