@@ -20,7 +20,7 @@ URxvt*secondaryWheel:       true
 URxvt*scrollTtyOutput:      false
 URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
-URxvt*saveLines:            5000
+URxvt*saveLines:            3000
 URxvt*urgentOnBell:         true
 URxvt.underlinecolor: #999999
 URxvt.cutchars: "()*,<>[]{}|'"
@@ -47,30 +47,37 @@ URxvt*pointerColor:         gray
 URxvt*fading:               25
 URxvt*fadeColor:            #000000
 
-*foreground: #c8c8c8
-*background: [90]#111111
+*foreground: #d0d0d0
+*background: [80]#101010
 
-!black
-*color0:  #1E1919
-*color8:  #4C4C4C
-!red
-*color1:  #f57900
-*color9:  #eb4509
-!green
-*color2:  #93d44f
-*color10: #95e76b
-!yellow
-*color3:  #eab93d
-*color11: #ffac18
-!blue
-*color4:  #3465a4
-*color12: #46a4ff
-!magenta
-*color5:  #ff8d8d
-*color13: #e32c57
-!cyan
-*color6:  #06989a
-*color14: #38ADAE
-!white
-*color7:  #cccccc
-*color15: #efefef
+! Black / Grey
+*color0:       #000000
+*color8:       #666666
+
+! Red / Bright Red
+*color1:       #f2777a
+*color9:       #FF3334
+
+! Green + Bright Green
+*color2:       #99cc99
+*color10:      #9ec400
+
+! Yellow (Orange) + Bright Yellow (Yellow)
+*color3:       #f99157
+*color11:      #ffcc66
+
+! Blue + Bright Blue
+*color4:       #6699cc
+*color12:      #6699cc
+
+! Magenta (Purple) + Bright Magenta
+*color5:       #b777e0
+*color13:      #b777e0
+
+! Cyan (Aqua) + Bright Cyan
+*color6:       #66cccc
+*color14:      #54ced6
+
+! Light Grey (Selection) + White (Current Line)
+*color7:       #ababab
+*color15:      #cccccc

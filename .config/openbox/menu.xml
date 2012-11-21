@@ -45,7 +45,7 @@
     <separator label="Menu"/>
     <!-- <menu id="desktop-app-menu"/> -->
         <item label="XChat">
-            <action name="Execute"><command>hexchat</command></action>
+            <action name="Execute"><command>xchat</command></action>
         </item>
         <item label="Chromium">
             <action name="Execute"><command>chromium</command></action>

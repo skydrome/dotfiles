@@ -9,11 +9,6 @@ feh --bg-center --no-fehbg ~/Pictures/arch.png &
 tint2 &
 pnmixer &
 urxvtc &
-
-ssh_foward &
 xflux -z 11577 &>/dev/null &
-
 conky -c ~/.conky/conky_blue -d &
 mpd &
-podget -s &
-
