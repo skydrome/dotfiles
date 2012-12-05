@@ -14,8 +14,6 @@ eval $(locale)
 umask 077
 
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
-export PATH="$HOME/bin:$PATH"
-
 xrdb -merge ~/.Xresources &
 
 #setkeycodes e025 130

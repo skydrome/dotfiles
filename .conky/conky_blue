@@ -66,5 +66,6 @@ ${voffset 0}
 ${goto 90}${font DejaVu Mono:size=8,weight:bold}${color}DISKS
 
 ${goto 90}${diskiograph 20,100 111111 3DC0E1}${voffset -30}
-${goto 90}${font DejaVu Mono:size=8,weight:normal}${color}
-${goto 90}${font DejaVu Mono:size=8,weight:normal}${color}
+
+${voffset 45}
+${goto 90}${font DejaVu Mono:size=8,weight:bold}${color}TEMP:${font DejaVu Mono:size=8} ${acpitemp}°C

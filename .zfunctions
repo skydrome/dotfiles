@@ -213,7 +213,6 @@ alias ports='netstat -nape --inet'
 alias ping='ping -c 15'
 alias nsw="sudo watch -n 3 -d -t netstat -vantp"    # watch incoming connections
 alias openports="netstat --all --numeric --programs --inet"
-alias netcat='nc.openbsd'
 alias chfile='chmod 644'
 alias chdir='chmod 755'
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
@@ -248,6 +247,6 @@ alias isodate='date "+%Y-%m-%dT%H:%M:%S%z"'   # ISO 8601
 alias webshare='python -m http.server 8080'
 alias axel='axel -a'
 alias eepget='sudo eepget'
-
 alias dd='pp'
-alias startx='rm /tmp/startx.log; startx 2>&1 | tee /tmp/startx.log'
+alias nocomment='grep -Ev "^(#|$)"'
+alias startx='startx 2>&1 | tee /tmp/startx.log'
