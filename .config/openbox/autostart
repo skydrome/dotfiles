@@ -1,14 +1,6 @@
-#
-# These things are run when an Openbox X Session is started.
-# You may place a similar script in $HOME/.config/openbox/autostart
-# to run user-specific things.
-#
-
 compton -cC -t-3 -l-5 -r4 -D5 -fF -b &
 feh --bg-center --no-fehbg ~/Pictures/arch.png &
 tint2 &
 pnmixer &
 urxvtc &
 xflux -z 11577 &>/dev/null &
-conky -c ~/.conky/conky_blue -d &
-mpd &

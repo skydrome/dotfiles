@@ -12,7 +12,7 @@ URxvt*perl-ext-common:      default,clipboard,matcher,tabbed
 URxvt*urlLauncher:          chromium
 URxvt*matcher.button:       1
 
-URxvt*buffered:             true
+URxvt*buffered:             false
 URxvt*scrollBar:            false
 URxvt*scrollBar_right:      false
 URxvt*borderLess:           false

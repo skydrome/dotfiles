@@ -101,13 +101,12 @@ function init_prompt {
 
     add-zsh-hook precmd prompt_precmd
 
-    zstyle ':vcs_info:*' enable git svn
+    zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' 'check-for-changes' true
     zstyle ':vcs_info:*' stagedstr '%F{g}●%f'
     zstyle ':vcs_info:*' unstagedstr '%F{y}●%f'
     zstyle ':vcs_info:*' formats '%F{g}%b%c%u%F{n}'
     zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
-    zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{c}%r%f'
     zstyle ':vcs_info:git*+set-message:*' hooks git-status
 
     PROMPT='╭☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}

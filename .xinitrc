@@ -14,17 +14,9 @@ eval $(locale)
 umask 077
 
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
+
 xrdb -merge ~/.Xresources &
-
-#setkeycodes e025 130
-#setkeycodes e026 131
-#setkeycodes e027 132
-#setkeycodes e029 122
-#setkeycodes e071 134
-#setkeycodes e072 135
-
 xmodmap ~/.Xmodmap &
-ssh_forward &
 urxvtd -q -o -f &
 
 launch() {

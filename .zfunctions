@@ -105,13 +105,17 @@ sizeofdir() { # show size of all directories in current working directory
 count() { sort "$@" | uniq -c | sort -n -r | pager; }
 
 rtorrent_start() {
-    dtach -n ~/.rtorrent/rtorrent.dtach rtorrent
-    [[ ! -z $(pgrep -u "$USER" "rtorrent") ]] &&
+    dtach -n ~/.rtorrent/rtorrent.dtach rtorrent && sleep 2
+    is_running 'rtorrent' &&
         echo "rtorrent start successfully" || echo "rtorrent failed to start"
 }
 
 rtorrent_resume() {
     dtach -a ~/.rtorrent/rtorrent.dtach
+}
+
+is_running() {
+    pgrep -u "$USER" "$1" &>/dev/null
 }
 
 ddprogress() {
@@ -158,9 +162,8 @@ depscan() {
   done < <(file $(pacman -Qlq $1) | sed -n '/ELF/s/^\(.*\):.*/\1/p') | nl
 }
 
-scrot() {
-    ( cd ~/Pictures && /usr/bin/scrot $*; )
-}
+scrot() { ( cd ~/Pictures && /usr/bin/scrot $*; ); }
+dropcaches() { sync; echo 3 >>/proc/sys/vm/drop_caches; }
 
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
@@ -168,7 +171,6 @@ mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
 ##[packaging]
 alias pacman='sudo pacman-color'
-alias pac_upgrade="yaourt -Syua && sudo localepurge"
 alias pac_info="pacman -Si"
 alias pac_list_local="pacman -Qqm"
 alias pac_clean_cache="pacman -Sc"
@@ -212,7 +214,7 @@ alias ns='netstat -alnp --protocol=inet'
 alias ports='netstat -nape --inet'
 alias ping='ping -c 15'
 alias nsw="sudo watch -n 3 -d -t netstat -vantp"    # watch incoming connections
-alias openports="netstat --all --numeric --programs --inet"
+alias openports="netstat --listening --numeric --programs --inet"
 alias chfile='chmod 644'
 alias chdir='chmod 755'
 alias syntaxcheck='for file in $(find $1 -iname "*.sh"); do bash -n $file ;done'
