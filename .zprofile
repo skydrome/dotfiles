@@ -16,7 +16,7 @@ LESS_TERMCAP_so=$'\E[00;44;33m' \
 LESS_TERMCAP_ue=$'\E[0m'        \
 LESS_TERMCAP_us=$'\E[01;32m'    \
 MALLOC_CHECK_=1 \
-PATH="$HOME/bin:/opt/qt5/bin:/usr/lib/colorgcc/bin:$PATH"
+PATH="$HOME/bin:/usr/lib/colorgcc/bin:$PATH"
 
 #CC=$HOME/bin/gcc
 #CXX=$HOME/bin/g++

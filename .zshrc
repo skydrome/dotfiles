@@ -109,7 +109,7 @@ function init_prompt {
     zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
     zstyle ':vcs_info:git*+set-message:*' hooks git-status
 
-    PROMPT='╭☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}
+    PROMPT='╭─${temp}°☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}
 ╰─▶ "
     RPROMPT='${vcs_info_msg_0_}%F{n}'
     SPROMPT='zsh: correct %F{r}%R%f to %F{g}%r%f [nyae]? '
@@ -120,14 +120,11 @@ case "$TERM" in
     vte*|xterm*|rxvt*)
         function precmd {
             print -Pn '\e];Terminal: [%m] %n (%~)\a'
-        }
-        function preexec {
-            local cmd=${1[(wr)^(*=*|sudo|ssh|-*)]}
-            print -Pn "\e];$cmd:q\a"
+            temp=$(sensors acerhdf-virtual-0 | grep 'temp1' | cut -d'+' -f2 | cut -d'.' -f1)
         }
     ;;
 esac
-eval $(dircolors -b) # ~/.dircolors)
+eval $(dircolors -b)
 
 init_prompt
 
