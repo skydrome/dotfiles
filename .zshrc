@@ -120,7 +120,8 @@ case "$TERM" in
     vte*|xterm*|rxvt*)
         function precmd {
             print -Pn '\e];Terminal: [%m] %n (%~)\a'
-            temp=$(sensors acerhdf-virtual-0 | grep 'temp1' | cut -d'+' -f2 | cut -d'.' -f1)
+            #temp=$(sensors acerhdf-virtual-0 | grep 'temp1' | cut -d'+' -f2 | cut -d'.' -f1)
+            temp=$(cat /sys/class/thermal/thermal_zone0/temp | cut -c1-2)
         }
     ;;
 esac
