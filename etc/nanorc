@@ -247,7 +247,7 @@ include "/usr/share/nano-syntax-highlighting/c.nanorc"
 include "/usr/share/nano-syntax-highlighting/conf.nanorc"
 
 ## CSS
-#include "/usr/share/nano-syntax-highlighting/css.nanorc"
+include "/usr/share/nano-syntax-highlighting/css.nanorc"
 
 ## Cython
 #include "/usr/share/nano-syntax-highlighting/cython.nanorc"
@@ -262,7 +262,7 @@ include "/usr/share/nano-syntax-highlighting/gentoo.nanorc"
 #include "/usr/share/nano-syntax-highlighting/groff.nanorc"
 
 ## HTML
-#include "/usr/share/nano-syntax-highlighting/html.nanorc"
+include "/usr/share/nano-syntax-highlighting/html.nanorc"
 
 ## Java
 include "/usr/share/nano-syntax-highlighting/java.nanorc"

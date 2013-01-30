@@ -1,154 +1,168 @@
 extract() {
-    local extract_dir="$( echo "$file_name" | sed "s/\.${1##*.}//g" )"
-    for i in "$@" ;do
-        if [[ ! -r $i ]]; then
-            echo "$0: file is unreadable: \`$i'" >&2
-            continue
-        fi
-    case "$1" in
-      *.t@(gz|lz|xz|b@(2|z?(2))|a@(z|r?(.@(Z|bz?(2)|gz|lzma|xz)))))
-                              bsdtar xvf "$1" ;;
-      #*.tar.gz|*.tgz        ) tar xzf "$1" ;;
-      #*.tar.bz2|*.tbz|*.tbz2) tar xjf "$1" ;;
-      #*.tar.xz|*.txz        ) tar --xz --help &> /dev/null &&
-      #                        tar --xz -xf "$1" ||
-      #                        xzcat "$1" | tar xf - ;;
-      #*.tar.zma|*.tlz       ) tar --lzma --help &> /dev/null &&
-      #                        tar --lzma -xf "$1" ||
-      #                        lzcat "$1" | tar xf - ;;
-      *.tar.lrz) lrzuntar    "$1" ;;
-      *.lrz    ) lrunzip     "$1" ;;
-      *.tar    ) tar xf      "$1" ;;
-      *.gz     ) gunzip      "$1" ;;
-      *.bz2    ) bunzip2     "$1" ;;
-      *.xz     ) unxz        "$1" ;;
-      *.lzma   ) unlzma      "$1" ;;
-      *.Z      ) uncompress  "$1" ;;
-      *.zip    ) local extract_dir=$(echo $(basename "$1") | sed "s/\.${1##*.}//g")
-                 unzip       "$1" -d $extract_dir ;;
-      *.rar    ) unrar e -ad "$1" ;;
-      *.7z     ) 7za x       "$1" ;;
-      *.Z      ) uncompress  "$1" ;;
-      *.exe    ) cabextract  "$1" ;;
-      *) echo "extract: '$1' cannot be extracted" 1>&2
-    esac
-    done
+	local extract_dir="$( echo "$file_name" | sed "s/\.${1##*.}//g" )"
+	for i in "$@" ;do
+		if [[ ! -r $i ]]; then
+			echo "$0: file is unreadable: \`$i'" >&2
+			continue
+		fi
+	case "$1" in
+	  *.t@(gz|lz|xz|b@(2|z?(2))|a@(z|r?(.@(Z|bz?(2)|gz|lzma|xz)))))
+							  bsdtar xvf "$1" ;;
+	  #*.tar.gz|*.tgz        ) tar xzf "$1" ;;
+	  #*.tar.bz2|*.tbz|*.tbz2) tar xjf "$1" ;;
+	  #*.tar.xz|*.txz        ) tar --xz --help &> /dev/null &&
+	  #                        tar --xz -xf "$1" ||
+	  #                        xzcat "$1" | tar xf - ;;
+	  #*.tar.zma|*.tlz       ) tar --lzma --help &> /dev/null &&
+	  #                        tar --lzma -xf "$1" ||
+	  #                        lzcat "$1" | tar xf - ;;
+	  *.tar.lrz) lrzuntar    "$1" ;;
+	  *.lrz    ) lrunzip     "$1" ;;
+	  *.tar    ) tar xf      "$1" ;;
+	  *.gz     ) gunzip      "$1" ;;
+	  *.bz2    ) bunzip2     "$1" ;;
+	  *.xz     ) unxz        "$1" ;;
+	  *.lzma   ) unlzma      "$1" ;;
+	  *.Z      ) uncompress  "$1" ;;
+	  *.zip    ) local extract_dir=$(echo $(basename "$1") | sed "s/\.${1##*.}//g")
+				 unzip       "$1" -d $extract_dir ;;
+	  *.rar    ) unrar e -ad "$1" ;;
+	  *.7z     ) 7za x       "$1" ;;
+	  *.Z      ) uncompress  "$1" ;;
+	  *.exe    ) cabextract  "$1" ;;
+	  *) echo "extract: '$1' cannot be extracted" 1>&2
+	esac
+	done
 }
 
 compress() { # compress a file or folder, assume we want lrzip since its the best
-    if [[ -x /usr/bin/lrzip && -r "$1" ]]; then
-        [[ -d "$1" ]] && lrztar "$1" ||
-        [[ -f "$1" ]] && lrzip "$1"
-    else
-    case "$1" in
-        tar.bz2|.tar.bz2) tar cvjf "${2%%/}.tar.bz2" "${2%%/}/"  ;;
-        tbz2|.tbz2)       tar cvjf "${2%%/}.tbz2" "${2%%/}/"     ;;
-        tbz|.tbz)         tar cvjf "${2%%/}.tbz" "${2%%/}/"      ;;
-        tar.xz)           tar cvJf "${2%%/}.tar.gz" "${2%%/}/"   ;;
-        tar.gz|.tar.gz)   tar cvzf "${2%%/}.tar.gz" "${2%%/}/"   ;;
-        tgz|.tgz)         tar cvjf "${2%%/}.tgz" "${2%%/}/"      ;;
-        tar|.tar)         tar cvf  "${2%%/}.tar" "${2%%/}/"      ;;
-        rar|.rar)         rar a "${2}.rar" "$2"                  ;;
-        zip|.zip)         zip -9 "${2}.zip" "$2"                 ;;
-        7z|.7z)           7z a "${2}.7z" "$2"                    ;;
-        lzo|.lzo)         lzop -v "$2"                           ;;
-        gz|.gz)           gzip -v "$2"                           ;;
-        bz2|.bz2)         bzip2 -v "$2"                          ;;
-        xz|.xz)           xz -v "$2"                             ;;
-        lzma|.lzma)       lzma -v "$2"                           ;;
-        *)  echo "Usage: compress <archive type> <filename>"
-            echo "Example: compress tar.bz2 PKGBUILD"
-            echo "Please specify archive type and source."
-            echo "Valid archive types are:"
-            echo "tar.bz2, tar.gz, tar.gz, tar, bz2, gz, tbz2, tbz,"
-            echo "tgz, lzo, rar, zip, 7z, xz and lzma."
-    esac
-    fi
+	if [[ -x /usr/bin/lrzip && -r "$1" ]]; then
+		[[ -d "$1" ]] && lrztar "$1" ||
+		[[ -f "$1" ]] && lrzip "$1"
+	else
+	case "$1" in
+		tar.bz2|.tar.bz2) tar cvjf "${2%%/}.tar.bz2" "${2%%/}/"  ;;
+		tbz2|.tbz2)       tar cvjf "${2%%/}.tbz2" "${2%%/}/"     ;;
+		tbz|.tbz)         tar cvjf "${2%%/}.tbz" "${2%%/}/"      ;;
+		tar.xz)           tar cvJf "${2%%/}.tar.gz" "${2%%/}/"   ;;
+		tar.gz|.tar.gz)   tar cvzf "${2%%/}.tar.gz" "${2%%/}/"   ;;
+		tgz|.tgz)         tar cvjf "${2%%/}.tgz" "${2%%/}/"      ;;
+		tar|.tar)         tar cvf  "${2%%/}.tar" "${2%%/}/"      ;;
+		rar|.rar)         rar a "${2}.rar" "$2"                  ;;
+		zip|.zip)         zip -9 "${2}.zip" "$2"                 ;;
+		7z|.7z)           7z a "${2}.7z" "$2"                    ;;
+		lzo|.lzo)         lzop -v "$2"                           ;;
+		gz|.gz)           gzip -v "$2"                           ;;
+		bz2|.bz2)         bzip2 -v "$2"                          ;;
+		xz|.xz)           xz -v "$2"                             ;;
+		lzma|.lzma)       lzma -v "$2"                           ;;
+		*)  echo "Usage: compress <archive type> <filename>"
+			echo "Example: compress tar.bz2 PKGBUILD"
+			echo "Please specify archive type and source."
+			echo "Valid archive types are:"
+			echo "tar.bz2, tar.gz, tar.gz, tar, bz2, gz, tbz2, tbz,"
+			echo "tgz, lzo, rar, zip, 7z, xz and lzma."
+	esac
+	fi
 }
 
 list() { # list content of archive but don't unpack
-    if [ -f "$1" ]; then
-        case "$1" in
-            *.tar.bz2|*.tbz2|*.tbz)  tar -jtf "$1"  ;;
-            *.tar.gz)                tar -ztf "$1"  ;;
-            *.tar|*.tgz|*.tar.xz)    tar -tf "$1"   ;;
-            *.gz)                    gzip -l "$1"   ;;
-            *.rar)                   rar vb "$1"    ;;
-            *.zip)                   unzip -l "$1"  ;;
-            *.7z)                    7z l "$1"      ;;
-            *.lzo)                   lzop -l "$1"   ;;
-            *.xz|*.txz|*.lzma|*.tlz) xz -l "$1"     ;;
-        esac
-    else
-        echo "Sorry, '$1' is not a valid archive."
-        echo "Valid archive types are:"
-        echo "tar.bz2, tar.gz, tar.xz, tar, gz,"
-        echo "tbz2, tbz, tgz, lzo, rar"
-        echo "zip, 7z, xz and lzma"
-    fi
+	if [ -f "$1" ]; then
+		case "$1" in
+			*.tar.bz2|*.tbz2|*.tbz)  tar -jtf "$1"  ;;
+			*.tar.gz)                tar -ztf "$1"  ;;
+			*.tar|*.tgz|*.tar.xz)    tar -tf "$1"   ;;
+			*.gz)                    gzip -l "$1"   ;;
+			*.rar)                   rar vb "$1"    ;;
+			*.zip)                   unzip -l "$1"  ;;
+			*.7z)                    7z l "$1"      ;;
+			*.lzo)                   lzop -l "$1"   ;;
+			*.xz|*.txz|*.lzma|*.tlz) xz -l "$1"     ;;
+		esac
+	else
+		echo "Sorry, '$1' is not a valid archive."
+		echo "Valid archive types are:"
+		echo "tar.bz2, tar.gz, tar.xz, tar, gz,"
+		echo "tbz2, tbz, tgz, lzo, rar"
+		echo "zip, 7z, xz and lzma"
+	fi
 }
 
 extract_dir() {
-    for FILE in $(find -type -f *); do
-        extract $FILE
-    done
+	for FILE in $(find -type -f *); do
+		extract $FILE
+	done
 }
 
 sizeofdir() { # show size of all directories in current working directory
-    du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
-        grep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
-        grep '^ *[0-9.]*M' /tmp/list
-        grep '^ *[0-9.]*G' /tmp/list
-    rm /tmp/list
+	du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
+		grep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
+		grep '^ *[0-9.]*M' /tmp/list
+		grep '^ *[0-9.]*G' /tmp/list
+	rm /tmp/list
 }
 
 count() { sort "$@" | uniq -c | sort -n -r | pager; }
 
 rtorrent_start() {
-    dtach -n ~/.rtorrent/rtorrent.dtach rtorrent && sleep 2
-    is_running 'rtorrent' &&
-        echo "rtorrent start successfully" || echo "rtorrent failed to start"
+	dtach -n ~/.rtorrent/rtorrent.dtach rtorrent && sleep 2
+	is_running 'rtorrent' &&
+		echo "rtorrent start successfully" || echo "rtorrent failed to start"
 }
 
 rtorrent_resume() {
-    dtach -a ~/.rtorrent/rtorrent.dtach
+	dtach -a ~/.rtorrent/rtorrent.dtach
 }
 
 is_running() {
-    pgrep -u "$USER" "$1" &>/dev/null
+	pgrep -u "$USER" "$1" &>/dev/null
 }
 
 ddprogress() {
-    local pid= t=0
-    dd "$@" &
-    pid=$!
+	local pid= t=0
+	dd "$@" &
+	pid=$!
 
-    while kill -0 "$pid"; do
-        sleep 5s
-        (( t += 5 ))
-        (( ! t % 60 )) &&
-            kill -USR1 "$pid" || break
-    done
+	while kill -0 "$pid"; do
+		sleep 5s
+		(( t += 5 ))
+		(( ! t % 60 )) &&
+			kill -USR1 "$pid" || break
+	done
+}
+
+ban() {
+	[[ $EUID = 0 ]] &&
+		iptables -A INPUT -s $1 -j DROP ||
+		sudo iptables -A INPUT -s $1 -j DROP
+}
+
+mans() {
+	man $1 | grep -iC4 $2 | less
+}
+
+servedir(){
+	python -m SimpleHTTPServer ${1:-8080}
 }
 
 deps() {
   local bin dir
   if [[ -f "$1" ]]; then
-    bin=$1
+	bin=$1
   elif bin=$(type -P $1); then
-    :
+	:
   else
-    # maybe its a lib?
-    for dir in /lib /usr/lib; do
-      if [[ -f $dir/$1 ]]; then
-        bin=$dir/$1
-        break
-      fi
-    done
+	# maybe its a lib?
+	for dir in /lib /usr/lib; do
+	  if [[ -f $dir/$1 ]]; then
+		bin=$dir/$1
+		break
+	  fi
+	done
   fi
 
   if [ $bin && $1 != $bin ]; then
-    printf '%s => %s\n\n' "$1" "$bin"
+	printf '%s => %s\n\n' "$1" "$bin"
   fi
 
   [[ -z $bin ]] && { echo "error: binary not found: $1"; return 1; }
@@ -158,7 +172,7 @@ deps() {
 depscan() {
   [[ -z $1 ]] && { echo "usage: depscan <package>"; return; }
   while read elfobj; do
-    objdump -p "$elfobj" | awk '/NEEDED/ { print $2 }'
+	objdump -p "$elfobj" | awk '/NEEDED/ { print $2 }'
   done < <(file $(pacman -Qlq $1) | sed -n '/ELF/s/^\(.*\):.*/\1/p') | nl
 }
 
@@ -210,6 +224,7 @@ alias sudo='sudo '
 alias gst='git status --short --untracked-files'
 alias backup='~/rsync.sh'
 alias ccopt='gcc -c -Q -O3 --help=optimizers | /usr/bin/grep enabled'
+alias ccopt2="echo 'int main(){return 0;}' > test.c && gcc -v -Q -march=native -O2 test.c -o test && rm test.c test"
 alias findcpu='echo "" | gcc -march=native -v -E - 2>&1 | /usr/bin/grep cc1'
 alias ns='netstat -alnp --protocol=inet'
 alias ports='netstat -nape --inet'
@@ -224,10 +239,10 @@ alias hup='pkill -HUP -x'
 alias rot13='tr N-ZA-Mn-za-m A-Za-z'
 alias xf='ps xf -O ppid'
 alias xx='chmod a+x'
-alias .='cd ../'
-alias ..='cd ../../'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
 alias install='install -v'
 alias mount='mount -v'
 alias umount='umount -v'
@@ -250,6 +265,7 @@ alias isodate='date "+%Y-%m-%dT%H:%M:%S%z"'   # ISO 8601
 alias webshare='python -m http.server 8080'
 alias axel='axel -a'
 alias eepget='sudo eepget'
+alias i2pget='http_proxy=127.0.0.1:4444 wget -c --no-dns-cache --bind-address=127.0.0.1'
 alias dd='pp'
 alias nocomment='/usr/bin/grep -Ev "^(#|$)"'
 alias mplayer='mpv'

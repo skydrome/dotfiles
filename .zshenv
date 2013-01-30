@@ -20,15 +20,14 @@ PATH="$HOME/bin:/usr/lib/colorgcc/bin:$PATH"
 
 #CC=$HOME/bin/gcc
 #CXX=$HOME/bin/g++
-CC=gcc
-CXX=g++
+CC=clang
+CXX=clang++
 
-CFLAGS="-O2 -pipe -march=native -msse -msse2 -msse3 -mmmx -Wno-unused-result"
-CFLAGS+=" -flto -fuse-linker-plugin"
-CFLAGS+=" -fstack-protector -D_FORTIFY_SOURCE=2 --param=ssp-buffer-size=4"
+CFLAGS="-O3 -pipe -march=native -msse -msse2 -msse3 -mmmx"
+CFLAGS+=" -flto"
+CFLAGS+=" -fstack-protector -D_FORTIFY_SOURCE=2" # --param=ssp-buffer-size=4"
 
 LDFLAGS="-Wl,-O1,--sort-common,--as-needed,--hash-style=gnu,-z,relro"
-LDFLAGS+=" -flto"
 
 export CFLAGS CXXFLAGS="${CFLAGS}" LDFLAGS CC CXX
 export MAKEFLAGS="-j2"

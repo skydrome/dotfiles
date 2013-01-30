@@ -109,7 +109,8 @@ function init_prompt {
     zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
     zstyle ':vcs_info:git*+set-message:*' hooks git-status
 
-    PROMPT='╭─${temp}°☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}
+    PROMPT='
+╭─${temp}°☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}
 ╰─▶ "
     RPROMPT='${vcs_info_msg_0_}%F{n}'
     SPROMPT='zsh: correct %F{r}%R%f to %F{g}%r%f [nyae]? '

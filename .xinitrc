@@ -20,7 +20,7 @@ xmodmap ~/.Xmodmap &
 urxvtd -q -o -f &
 
 launch() {
-    exec dbus-launch --binary-syntax --close-stderr --exit-with-session $*
+    exec $*
 }
 
 case ${2:-openbox} in
