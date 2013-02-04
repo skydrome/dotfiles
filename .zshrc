@@ -87,7 +87,7 @@ function init_prompt {
     local uc hc pc dc
     [[ -n $SSH_TTY ]] &&
     hc=yellow || hc=blue
-    uc=${1:+"%F{$1}"}
+    uc=${1:+%F{$1}}
     hc=${2:-$hc}
     pc=${3:-'g'}
     dc=${4:-'o'}
@@ -110,8 +110,8 @@ function init_prompt {
     zstyle ':vcs_info:git*+set-message:*' hooks git-status
 
     PROMPT='
-╭─${temp}°☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}
-╰─▶ "
+╭─${batt}${temp}°─☾'${uc:-'%(#.%F{red}.%F{cyan})'}"%n%F{$dc}@%F{$hc%}%m%F{$dc}☽ %F{$pc}%0~%F{r}%(?..  ↵%?) %F{$dc}
+╰──▶ "
     RPROMPT='${vcs_info_msg_0_}%F{n}'
     SPROMPT='zsh: correct %F{r}%R%f to %F{g}%r%f [nyae]? '
     PROMPT2=' ─▶ '
@@ -121,8 +121,12 @@ case "$TERM" in
     vte*|xterm*|rxvt*)
         function precmd {
             print -Pn '\e];Terminal: [%m] %n (%~)\a'
-            #temp=$(sensors acerhdf-virtual-0 | grep 'temp1' | cut -d'+' -f2 | cut -d'.' -f1)
             temp=$(cat /sys/class/thermal/thermal_zone0/temp | cut -c1-2)
+            bat_now=$(cat /sys/class/power_supply/BAT1/charge_now)
+            #bat_full=$(cat /sys/class/power_supply/BAT1/charge_full)
+            bat_full=6332000
+            (( bat_now != bat_full )) &&
+              batt="$(( bat_now*100 / bat_full ))%%─" || batt=
         }
     ;;
 esac
