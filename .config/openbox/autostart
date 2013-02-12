@@ -1,6 +1,13 @@
 compton -cC -t-3 -l-5 -r4 -D5 -fF -b &
-feh --bg-center --no-fehbg ~/Pictures/arch.png &
+
+if [ $(type -P spacefm) ];then
+    spacefm --desktop &
+    sleep 2
+else
+    feh --bg-center --no-fehbg ~/Pictures/arch.png &
+fi
+
 tint2 &
 volumeicon &
-urxvtc &
-xflux -z 11577 &>/dev/null &
+urxvtcd &
+xflux -z 11577 >/dev/null &

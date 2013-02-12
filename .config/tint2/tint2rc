@@ -5,21 +5,21 @@
 # Background definitions
 # ID 1
 rounded = 6
-border_width = 0
-background_color = #1F1F1F 63
-border_color = #656565 100
+border_width = 1
+background_color = #101010 58
+border_color = #000000 83
 
 # ID 2
 rounded = 4
 border_width = 1
-background_color = #111111 93
-border_color = #E2E2E2 29
+background_color = #111111 90
+border_color = #E2E2E2 26
 
 # ID 3
-rounded = 7
+rounded = 8
 border_width = 1
-background_color = #171717 76
-border_color = #464646 43
+background_color = #171717 73
+border_color = #464646 40
 
 # ID 4
 rounded = 5
@@ -47,7 +47,7 @@ strut_policy = follow_size
 
 # Taskbar
 taskbar_mode = single_desktop
-taskbar_padding = 0 3 5
+taskbar_padding = 0 2 5
 taskbar_background_id = 0
 taskbar_active_background_id = 0
 
