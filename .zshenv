@@ -16,18 +16,4 @@ LESS_TERMCAP_so=$'\E[00;44;33m' \
 LESS_TERMCAP_ue=$'\E[0m'        \
 LESS_TERMCAP_us=$'\E[01;32m'    \
 MALLOC_CHECK_=1 \
-PATH="$HOME/bin:/usr/lib/colorgcc/bin:$PATH"
-
-#CC=$HOME/bin/gcc
-#CXX=$HOME/bin/g++
-CC=clang
-CXX=clang++
-
-CFLAGS="-O3 -pipe -march=native -msse -msse2 -msse3 -mmmx"
-CFLAGS+=" -flto"
-CFLAGS+=" -fstack-protector -D_FORTIFY_SOURCE=2" # --param=ssp-buffer-size=4"
-
-LDFLAGS="-Wl,-O1,--sort-common,--as-needed,--hash-style=gnu,-z,relro"
-
-export CFLAGS CXXFLAGS="${CFLAGS}" LDFLAGS CC CXX
-export MAKEFLAGS="-j2"
+PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl"

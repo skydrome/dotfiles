@@ -205,7 +205,6 @@ alias lz='ll -rS'                   # sort by size
 alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 alias grep='grep -n --color=auto'
-alias df='dfc'
 alias du='du -h'
 
 ##[safety]

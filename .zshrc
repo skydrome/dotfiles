@@ -1,4 +1,5 @@
 cat <<"EOF"
+         [1;34m.
         [1;34m/[1;34m#[1;34m\[1;34m                      _    [0;34m _ _
        [1;34m/[1;34m###[1;34m\[1;34m       __ _ _ __ ___| |__ [0;34m| (_)_ __  _   ___  __
       [1;34m/[1;34m#####[1;34m\[1;34m     / _` | '__/ __| '_ \[0;34m| | | '_ \| | | \ \/ /
@@ -138,3 +139,13 @@ foreach f in ~/.z{style,functions,private}; {
     source $f
 }
 source /usr/share/doc/pkgfile/command-not-found.zsh
+
+CC=clang
+CXX=clang++
+#CC=gcc
+#CXX=g++
+CFLAGS="-Os -pipe -march=native"
+CFLAGS+=" -flto"
+CFLAGS+=" -fstack-protector -D_FORTIFY_SOURCE=2" # --param=ssp-buffer-size=4"
+LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro"
+export MAKEFLAGS="-j2" CFLAGS CXXFLAGS="${CFLAGS}" LDFLAGS CC CXX
