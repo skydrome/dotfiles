@@ -268,4 +268,5 @@ alias i2pget='http_proxy=127.0.0.1:4444 wget -c --no-dns-cache --bind-address=12
 alias dd='pp'
 alias nocomment='/usr/bin/grep -Ev "^(#|$)"'
 alias mplayer='mpv'
-alias startx='startx 2>&1 | tee /tmp/startx.log'
+#alias startx='startx 2>&1 | tee /tmp/startx.log'
+alias paste="curl -F 'p=<-' clpastebin.appspot.com"

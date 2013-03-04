@@ -144,8 +144,8 @@ CC=clang
 CXX=clang++
 #CC=gcc
 #CXX=g++
-CFLAGS="-Os -pipe -march=native"
+CFLAGS="-Os -pipe -march=native -fstack-protector"
 CFLAGS+=" -flto"
-CFLAGS+=" -fstack-protector -D_FORTIFY_SOURCE=2" # --param=ssp-buffer-size=4"
+CPPFLAGS="-D_FORTIFY_SOURCE=2"
 LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro"
-export MAKEFLAGS="-j2" CFLAGS CXXFLAGS="${CFLAGS}" LDFLAGS CC CXX
+export MAKEFLAGS="-j2" CFLAGS CXXFLAGS="${CFLAGS}" CC CXX CPPFLAGS LDFLAGS
