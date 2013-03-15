@@ -2,12 +2,12 @@ compton -cC -t-3 -l-5 -r4 -D5 -fF -b &
 
 if [ $(type -P spacefm) ];then
     spacefm --desktop &
-    sleep 2
+    sleep 4
 else
     feh --bg-center --no-fehbg ~/Pictures/arch.png &
 fi
 
+xflux -z 11577 >/dev/null &
+urxvtcd &
 tint2 &
 volumeicon &
-urxvtcd &
-xflux -z 11577 >/dev/null &

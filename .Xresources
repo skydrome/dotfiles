@@ -54,32 +54,32 @@ URxvt*background: [75]#0f0f0f
 
 ! Black / Grey
 *color0:       #000000
-*color8:       #666666
+*color8:       #555753
 
 ! Red / Bright Red
-*color1:       #f2777a
+*color1:       #cc0000
 *color9:       #FF3334
 
 ! Green + Bright Green
-*color2:       #99cc99
-*color10:      #9ec400
+*color2:       #67cc08
+*color10:      #8ae234
 
 ! Yellow (Orange) + Bright Yellow (Yellow)
 *color3:       #f99157
-*color11:      #ffcc66
+*color11:      #fce94f
 
 ! Blue + Bright Blue
-*color4:       #6699cc
+*color4:       #3465a4
 *color12:      #6699cc
 
 ! Magenta (Purple) + Bright Magenta
-*color5:       #b777e0
+*color5:       #77507b
 *color13:      #b777e0
 
 ! Cyan (Aqua) + Bright Cyan
-*color6:       #66cccc
-*color14:      #54ced6
+*color6:       #06989a
+*color14:      #34E2E2
 
 ! Light Grey (Selection) + White (Current Line)
-*color7:       #ababab
-*color15:      #cccccc
+*color7:       #ABABAB
+*color15:      #D3D7CF

@@ -178,7 +178,8 @@ depscan() {
 
 scrot() { ( cd ~/Pictures && /usr/bin/scrot $*; ); }
 dropcaches() { sync; echo 3 >>/proc/sys/vm/drop_caches; }
-
+psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
+fname() { find . -iname "*$@*"; }
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
